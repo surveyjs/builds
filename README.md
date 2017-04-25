@@ -12,6 +12,8 @@ SurveyJS knockout: https://surveyjs.azureedge.net/0.12.3/survey.ko.min.js
 
 SurveyJS React: https://surveyjs.azureedge.net/0.12.3/survey.react.min.js
 
+SurveyJS Vue: https://surveyjs.azureedge.net/0.12.3/survey.vue.min.js
+
 Optional css (for non bootstrap version): https://surveyjs.azureedge.net/0.12.3/survey.css
 
 SurveyJS Editor files:
