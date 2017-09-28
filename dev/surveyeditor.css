@@ -1,3 +1,9 @@
+/*!
+ * surveyjs Editor v0.12.28
+ * (c) Devsoft Baltic O� - http://surveyjs.io/
+ * Github - https://github.com/surveyjs/editor
+ * License: (http://editor.surveyjs.io/license.html)
+ */
 @media (max-width: 816px) {
   .svd_container .nav-tabs.svd_menu > li.active > a {
     color: #1ab394;
@@ -215,6 +221,9 @@
   -khtml-user-drag: element;
   -webkit-user-drag: element; }
 
+.svd_container .svd_wrap_elements {
+  white-space: normal; }
+
 .svd_container .svd_table-nowrap {
   table-layout: fixed; }
 
@@ -406,6 +415,13 @@
   background-position: center;
   padding: 8px; }
 
+.icon-boolean:before {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYgMTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiMzRDRENUQ7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0wLDE2aDEwVjZIMFYxNnogTTIsMTBsMiwybDQtNGwxLDFsLTUsNWwtMy0zTDIsMTB6Ii8+DQoJPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSI1LDEgNSw1IDYsNSA2LDIgMTQsMiAxNCwxMCAxMSwxMCAxMSwxMSAxNSwxMSAxNSwxIAkiLz4NCjwvZz4NCjwvc3ZnPg0K);
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 8px; }
+
 .icon-delete:before {
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNCAyNCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjQgMjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiMxQUIzOTQiIGQ9Ik02LDhsMi0ybDQsNGw0LTRsMiwybC00LDRsNCw0bC0yLDJsLTQtNGwtNCw0bC0yLTJsNC00TDYsOHoiLz4NCjwvZz4NCjwvc3ZnPg0K);
   content: "";
@@ -461,5 +477,3 @@
   background-repeat: no-repeat;
   background-position: center;
   padding: 12px; }
-
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3BhY2thZ2Uvc3VydmV5ZWRpdG9yLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/
