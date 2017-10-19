@@ -1,5 +1,5 @@
 /*!
- * surveyjs Editor v0.12.28
+ * surveyjs Editor v0.12.32
  * (c) Devsoft Baltic O� - http://surveyjs.io/
  * Github - https://github.com/surveyjs/editor
  * License: (http://editor.surveyjs.io/license.html)
@@ -75,8 +75,10 @@
       list-style: none;
       background-color: transparent;
       border: none;
-      height: 34px;
       padding: 0; }
+      .svd_container .svd_content .svd_survey_designer .svd_toolbar.svd_menu > li.svd_actions {
+        float: none;
+        display: inline-block; }
     .svd_container .svd_content .svd_survey_designer .svd_toolbox {
       background-color: #f3f3f4;
       border: none; }
