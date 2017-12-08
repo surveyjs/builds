@@ -1,5 +1,5 @@
 /*!
- * surveyjs - Survey JavaScript library v0.12.28
+ * surveyjs - Survey JavaScript library v0.98.1
  * Copyright (c) 2015-2017 Devsoft Baltic OÜ  - http://surveyjs.io/
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
  */
@@ -9,7 +9,7 @@
   right: 10px;
   background-color: cadetblue;
   padding: 1px;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -46,16 +46,20 @@
   padding: 8px;
   margin: 0; }
 
-.sv_window_title a, .sv_window_title a:link, .sv_window_title a:visited {
+.sv_window_title a,
+.sv_window_title a:link,
+.sv_window_title a:visited {
   text-decoration: none;
   font-size: 14px;
   font-style: normal;
   color: black; }
 
 .sv_main {
-  width: 100%; }
+  width: 100%;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px; }
 
-sv_body {
+.sv_body {
   margin-bottom: 10px; }
 
 .sv_page_empty {
@@ -79,7 +83,10 @@ sv_body {
   box-sizing: border-box; }
 
 .sv_q_title {
-  width: 100%; }
+  width: 100%;
+  margin: 0;
+  font-size: 1em;
+  font-weight: 500; }
 
 .sv_q_description {
   font-size: small;
@@ -92,7 +99,8 @@ sv_body {
 .sv_q_matrix {
   width: 100%;
   max-width: 100%; }
-  .sv_q_matrix th, .sv_q_matrix td {
+  .sv_q_matrix th,
+  .sv_q_matrix td {
     text-align: center;
     vertical-align: central; }
   .sv_q_matrix td:first-child {
@@ -108,7 +116,8 @@ sv_body {
   display: inline-block; }
 
 .sv_q_rating {
-  display: inline-block; }
+  display: inline-block;
+  line-height: 2.3em; }
 
 .sv_q_rating > :first-child {
   border-bottom-left-radius: 4px;
@@ -119,9 +128,7 @@ sv_body {
   border-top-right-radius: 4px; }
 
 .sv_q_rating_item {
-  margin-left: -1px;
-  padding: 6px 12px;
-  margin-bottom: 0px;
+  padding: 0.4em 0.75em;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -143,7 +150,7 @@ sv_body {
   background-color: #e6e6e6;
   border-color: #adadad; }
 
-.sv_q_rating > .sv_q_rating_item input[type='radio'] {
+.sv_q_rating > .sv_q_rating_item input[type="radio"] {
   position: absolute;
   clip: rect(0px, 0px, 0px, 0px);
   pointer-events: none; }
