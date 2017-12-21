@@ -1,5 +1,5 @@
 /*!
- * surveyjs Editor v0.98.3
+ * surveyjs Editor v0.98.5
  * (c) Devsoft Baltic O� - http://surveyjs.io/
  * Github - https://github.com/surveyjs/editor
  * License: (http://editor.surveyjs.io/license.html)
@@ -142,18 +142,21 @@
         .svd_container .ddmenu-container.propertyeditor-triggers ul li a:hover, .svd_container .ddmenu-container.propertyeditor-validators ul li a:hover {
           background-color: #f5f5f5;
           text-decoration: none; }
-  .svd_container .select2-container .select2-selection--single {
+  .svd_container .select2-container .select2-selection--single,
+  .svd_container .select2-container--default.select2-container--open .select2-selection--single {
     border-radius: 0;
     border: 1px solid #ccc;
     height: 34px; }
-    .svd_container .select2-container .select2-selection--single .select2-selection__arrow {
+    .svd_container .select2-container .select2-selection--single .select2-selection__arrow,
+    .svd_container .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow {
       background: #1ab394;
       height: 34px;
       top: 0px;
       right: 0px;
       width: 34px; }
-      .svd_container .select2-container .select2-selection--single .select2-selection__arrow b {
-        border-color: white transparent transparent transparent; }
+      .svd_container .select2-container .select2-selection--single .select2-selection__arrow b,
+      .svd_container .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+        border-color: white transparent white transparent; }
   .svd_container * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -289,31 +292,27 @@
       padding: 10px 15px 0 15px; }
       .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs {
         border: none;
-        position: relative;
-        padding-right: 100px; }
+        position: relative; }
+        .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > ul {
+          display: table-cell; }
         .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li {
           position: relative;
           margin-right: 2px;
           margin-bottom: 2px;
-          border: 1px solid #ddd;
-          border-radius: 3px;
-          padding: 7px 22px 7px 12px;
-          cursor: pointer; }
-          .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li.active .svd_page_nav {
-            color: #1ab394;
-            margin-right: 2px; }
-          .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li.active:hover {
+          border-radius: 2px;
+          font-weight: bold; }
+          .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li path.gear-icon {
+            fill: lightgray; }
+          .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li > div {
+            display: inline-block;
+            cursor: pointer;
+            padding: 7px 12px; }
+            .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li > div:hover {
+              background-color: #eee; }
+          .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li .svd_add_page_li:hover {
             background-color: transparent; }
-          .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li:hover {
-            background-color: #eee; }
-          .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li.svd_add_page_li {
-            border: none; }
-            .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li.svd_add_page_li:hover {
-              background-color: transparent; }
           .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li.svd_edit_survey_li {
-            position: absolute;
-            right: 0;
-            margin-right: 10px; }
+            display: table-cell; }
           .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li .svd_page_nav {
             display: inline-block;
             border: none;
@@ -321,25 +320,19 @@
             margin-bottom: 1px;
             color: #676a6c;
             background-color: transparent; }
-          .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li .ddmenu-container.page-nav {
-            position: absolute;
-            right: 5px;
-            top: 8px; }
-            .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li .ddmenu-container.page-nav ul {
-              background: white;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              padding: 0;
-              box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-              min-width: 160px;
-              right: -6px;
-              margin-top: 7px;
-              border-top-left-radius: 0;
-              border-top-right-radius: 0; }
-              .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li .ddmenu-container.page-nav ul li {
-                margin: 5px; }
-                .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li .ddmenu-container.page-nav ul li button {
-                  width: 100%; }
+          .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li .ddmenu-container.page-nav ul {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            padding: 0;
+            margin-top: 7px; }
+            .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li .ddmenu-container.page-nav ul li {
+              margin: 7px; }
+              .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .nav-tabs > li .ddmenu-container.page-nav ul li button {
+                padding: 6px 15px;
+                font-size: 11px;
+                font-weight: bold;
+                width: 100%; }
       .svd_container .svd_content .svd_survey_designer .svd_editors .svd_pages_editor .svd_add_new_page_btn {
         border: none;
         padding: 0;
@@ -456,7 +449,8 @@
     .svd_container .glyphicon.glyphicon-plus::before {
       font-size: 20px;
       line-height: 20px;
-      content: "+"; }
+      content: "+";
+      color: #1ab394; }
     .svd_container .glyphicon.glyphicon-option-horizontal::before {
       font-size: 20px;
       content: "\22EF"; }
@@ -810,6 +804,20 @@
   background-repeat: no-repeat;
   background-position: center;
   padding: 12px; }
+
+.icon-gear:before {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMiAxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTIgMTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGNsYXNzPSJnZWFyLWljb24iIGZpbGw9IiNkMGQwZDAiIGQ9Ik0xMiw3VjVIOS45QzkuOCw0LjYsOS42LDQuMyw5LjQsNGwxLjUtMS41TDkuNSwxLjFMOCwyLjZDNy43LDIuNCw3LjQsMi4yLDcsMi4xVjBINXYyLjFDNC42LDIuMiw0LjMsMi40LDQsMi42DQoJTDIuNSwxLjFMMS4xLDIuNUwyLjYsNEMyLjQsNC4zLDIuMiw0LjYsMi4xLDVIMHYyaDIuMWMwLjEsMC40LDAuMiwwLjcsMC40LDFMMS4xLDkuNWwxLjQsMS40TDQsOS40YzAuMywwLjIsMC43LDAuMywxLDAuNFYxMmgyVjkuOQ0KCWMwLjQtMC4xLDAuNy0wLjIsMS0wLjRsMS41LDEuNWwxLjQtMS40TDkuNCw4YzAuMi0wLjMsMC4zLTAuNywwLjQtMUgxMnogTTYsOEM0LjksOCw0LDcuMSw0LDZjMC0xLjEsMC45LTIsMi0yYzEuMSwwLDIsMC45LDIsMg0KCUM4LDcuMSw3LjEsOCw2LDh6Ii8+DQo8L3N2Zz4NCg==);
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 6px; }
+
+.icon-gear-active:before {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMiAxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTIgMTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGNsYXNzPSJnZWFyLWljb24iIGZpbGw9IiMxYWIzOTQiIGQ9Ik0xMiw3VjVIOS45QzkuOCw0LjYsOS42LDQuMyw5LjQsNGwxLjUtMS41TDkuNSwxLjFMOCwyLjZDNy43LDIuNCw3LjQsMi4yLDcsMi4xVjBINXYyLjFDNC42LDIuMiw0LjMsMi40LDQsMi42DQoJTDIuNSwxLjFMMS4xLDIuNUwyLjYsNEMyLjQsNC4zLDIuMiw0LjYsMi4xLDVIMHYyaDIuMWMwLjEsMC40LDAuMiwwLjcsMC40LDFMMS4xLDkuNWwxLjQsMS40TDQsOS40YzAuMywwLjIsMC43LDAuMywxLDAuNFYxMmgyVjkuOQ0KCWMwLjQtMC4xLDAuNy0wLjIsMS0wLjRsMS41LDEuNWwxLjQtMS40TDkuNCw4YzAuMi0wLjMsMC4zLTAuNywwLjQtMUgxMnogTTYsOEM0LjksOCw0LDcuMSw0LDZjMC0xLjEsMC45LTIsMi0yYzEuMSwwLDIsMC45LDIsMg0KCUM4LDcuMSw3LjEsOCw2LDh6Ii8+DQo8L3N2Zz4NCg==);
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 6px; }
 
 .svd_container .animated {
   -webkit-animation-duration: 0.2s;
