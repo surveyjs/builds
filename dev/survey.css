@@ -1,3 +1,8 @@
+/*!
+ * surveyjs - Survey JavaScript library v1.0.0
+ * Copyright (c) 2015-2017 Devsoft Baltic OÜ  - http://surveyjs.io/
+ * License: MIT (http://www.opensource.org/licenses/mit-license.php)
+ */
 .sv_window {
   position: fixed;
   bottom: 3px;
@@ -181,7 +186,7 @@
         font-size: 1.15em;
         margin: 1.5em 0 0 0; }
       .sv_main .sv_container .sv_body .sv_p_root > .sv_row {
-        padding: 0 1em; }
+        padding: 0; }
       .sv_main .sv_container .sv_body .sv_p_root .sv_q_title {
         font-weight: bold;
         font-size: 1em;
@@ -190,7 +195,8 @@
         margin-top: -0.6em; }
       .sv_main .sv_container .sv_body .sv_p_root .sv_q {
         padding: 0.5em 1em 1.5em 1em;
-        box-sizing: border-box; }
+        box-sizing: border-box;
+        overflow: auto; }
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_panel_dynamic .sv_q_title {
           font-weight: normal; }
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_erbox:not([style*="display: none"]):not([style*="display:none"]) {
@@ -228,7 +234,8 @@
             background: transparent;
             appearance: none;
             -webkit-appearance: none;
-            -moz-appearance: none; }
+            -moz-appearance: none;
+            padding-right: 2.5em; }
             .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_select_wrapper select::-ms-expand {
               display: none; }
           .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_select_wrapper:before {
@@ -304,7 +311,9 @@
         line-height: 2em; }
         .sv_main .sv_container .sv_body .sv_p_root .sv_q_rating .sv_q_rating_item {
           cursor: pointer;
-          word-spacing: -0.3em; }
+          word-spacing: -0.3em;
+          font-weight: normal;
+          display: inline; }
           .sv_main .sv_container .sv_body .sv_p_root .sv_q_rating .sv_q_rating_item > * {
             word-spacing: initial; }
           .sv_main .sv_container .sv_body .sv_p_root .sv_q_rating .sv_q_rating_item .sv_q_rating_item_text {
@@ -327,5 +336,3 @@
           float: right; }
         .sv_main .sv_container .sv_body .sv_nav .sv_prev_btn {
           float: left; }
-
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3BhY2thZ2VzL3N1cnZleS1hbmd1bGFyL3N1cnZleS5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/
