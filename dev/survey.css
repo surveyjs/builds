@@ -1,5 +1,5 @@
 /*!
- * surveyjs - Survey JavaScript library v1.0.2
+ * surveyjs - Survey JavaScript library v1.0.6
  * Copyright (c) 2015-2017 Devsoft Baltic OÜ  - http://surveyjs.io/
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
  */
@@ -53,6 +53,14 @@
   font-size: 14px;
   font-style: normal;
   color: black; }
+
+.sv_main.sv_frame .sv_container {
+  max-width: 80%;
+  margin: auto;
+  padding: 0 1em; }
+  .sv_main.sv_frame .sv_container .sv_header {
+    padding-top: 5em;
+    padding-bottom: 1em; }
 
 .sv_main {
   background-color: #f4f4f4; }
@@ -149,17 +157,12 @@
   .sv_main .sv_custom_header {
     position: absolute;
     width: 100%;
-    height: 275px; }
+    height: 74%;
+    max-height: 275px; }
   .sv_main .sv_container {
-    max-width: 80%;
-    margin: auto;
-    position: relative;
-    padding: 0 1em; }
+    position: relative; }
     .sv_main .sv_container .sv_header {
-      padding-top: 5em;
-      padding-bottom: 1em;
-      padding-left: 1em;
-      padding-right: 1em; }
+      padding: 1em; }
       .sv_main .sv_container .sv_header h3 {
         font-size: 2em;
         font-weight: 300;
