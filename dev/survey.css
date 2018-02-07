@@ -170,6 +170,13 @@
         margin: 0; }
     .sv_main .sv_container .sv_body {
       padding: 1em 1em 5em 1em; }
+      .sv_main .sv_container .sv_body.sv_completed_page {
+        text-align: center;
+        padding: 5em 1em; }
+        .sv_main .sv_container .sv_body.sv_completed_page > h3 {
+          margin: 0;
+          font-size: 30px;
+          font-weight: 300; }
       .sv_main .sv_container .sv_body .sv_progress {
         height: 0.3em; }
         .sv_main .sv_container .sv_body .sv_progress .sv_progress_bar {
