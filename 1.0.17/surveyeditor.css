@@ -525,6 +525,8 @@
   position: relative;
   font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 12px; }
+  .svd_container #surveyjs .svd_question {
+    overflow: visible; }
   .svd_container .svd-textitems-column {
     width: 100%;
     display: inline-block; }
