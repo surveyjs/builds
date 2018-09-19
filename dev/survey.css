@@ -1,5 +1,5 @@
 /*!
- * surveyjs - Survey JavaScript library v1.0.29
+ * surveyjs - Survey JavaScript library v1.0.44
  * Copyright (c) 2015-2018 Devsoft Baltic OÜ  - http://surveyjs.io/
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
  */
@@ -139,6 +139,10 @@
     border: 1px solid #e7e7e7; }
     .sv_main .sv_q_rating_item .sv_q_rating_item_text:hover {
       border: 1px solid #179d82; }
+  .sv_main .sv_q_imgsel.checked label > div {
+    background-color: #1ab394; }
+  .sv_main .sv_q_file_remove:hover {
+    color: #1ab394; }
 
 .sv_main {
   position: relative;
@@ -184,6 +188,7 @@
         height: 0.3em; }
         .sv_main .sv_container .sv_body .sv_progress .sv_progress_bar {
           height: 100%;
+          min-width: 100px;
           position: relative;
           margin-top: 2em; }
           .sv_main .sv_container .sv_body .sv_progress .sv_progress_bar > span {
@@ -235,7 +240,6 @@
           .sv_main .sv_container .sv_body .sv_p_root .sv_q textarea:focus {
             outline: none; }
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_other input,
-        .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_text_root,
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_dropdown_control,
         .sv_main .sv_container .sv_body .sv_p_root .sv_q input[type="text"],
         .sv_main .sv_container .sv_body .sv_p_root .sv_q select {
@@ -283,12 +287,23 @@
           .sv_main .sv_container .sv_body .sv_p_root .sv_q input[type="checkbox"]:focus {
             outline: none; }
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_radiogroup.sv_q_radiogroup_inline:not(:last-child),
-        .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_checkbox.sv_q_checkbox_inline:not(:last-child) {
+        .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_checkbox.sv_q_checkbox_inline:not(:last-child),
+        .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_imgsel.sv_q_imagepicker_inline:not(:last-child) {
           margin-right: 1.5em; }
+        .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_imgsel label > div {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          padding: 4px;
+          border: 1px solid lightgray;
+          border-radius: 4px; }
+          .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_imgsel label > div > img {
+            display: block; }
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_radiogroup_clear {
           margin-top: 0.5em; }
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_checkbox_inline,
-        .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_radiogroup_inline {
+        .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_radiogroup_inline,
+        .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_imagepicker_inline {
           line-height: 2em;
           display: inline-block; }
         .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_footer {
@@ -298,10 +313,11 @@
         border-collapse: collapse; }
         .sv_main .sv_container .sv_body .sv_p_root table.sv_q_matrix .sv_matrix_dynamic_button, .sv_main .sv_container .sv_body .sv_p_root table.sv_q_matrix_dropdown .sv_matrix_dynamic_button, .sv_main .sv_container .sv_body .sv_p_root table.sv_q_matrix_dynamic .sv_matrix_dynamic_button {
           padding: 0.3em 2em; }
-        .sv_main .sv_container .sv_body .sv_p_root table.sv_q_matrix td {
-          min-width: 10em; }
-          .sv_main .sv_container .sv_body .sv_p_root table.sv_q_matrix td .sv_q_m_label {
-            position: static; }
+        @media (min-width: 768px) {
+          .sv_main .sv_container .sv_body .sv_p_root table.sv_q_matrix td {
+            min-width: 10em; } }
+        .sv_main .sv_container .sv_body .sv_p_root table.sv_q_matrix td .sv_q_m_label {
+          position: static; }
         .sv_main .sv_container .sv_body .sv_p_root table.sv_q_matrix_dropdown .sv_qcbc .sv_q_checkbox_control_label {
           margin-right: 1.5em; }
         .sv_main .sv_container .sv_body .sv_p_root table td,
