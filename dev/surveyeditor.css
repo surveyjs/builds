@@ -185,11 +185,13 @@
   .svd_container span:focus,
   .svd_container select:focus,
   .svd_container tr:focus,
-  .svd_container tr:focus-within {
+  .svd_container input[type="checkbox"]:focus + span.checkmark {
     outline-color: #1ab394;
     outline-style: dotted;
     outline-width: 0.5px;
     outline-offset: -1px; }
+  .svd_container .svd_toolbar button:focus {
+    outline-color: #676a6c; }
   .svd_container .svd-main-color {
     color: #1ab394; }
   .svd_container .svd-main-background-color {
