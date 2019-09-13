@@ -23,6 +23,7 @@ export var __spreadArrays: () => any[];
 export declare var surveyCss: any;
 export declare var defaultStandardCss: {
     root: string;
+    container: string;
     header: string;
     body: string;
     bodyEmpty: string;
@@ -208,6 +209,7 @@ export declare var defaultStandardCss: {
 
 export declare var defaultBootstrapCss: {
     root: string;
+    container: string;
     header: string;
     body: string;
     bodyEmpty: string;
@@ -392,6 +394,7 @@ export declare var defaultBootstrapCss: {
 
 export declare var defaultBootstrapMaterialCss: {
     root: string;
+    container: string;
     header: string;
     body: string;
     bodyEmpty: string;
@@ -581,6 +584,7 @@ export declare var defaultBootstrapMaterialCss: {
 
 export declare var bemCss: {
     root: string;
+    container: string;
     header: string;
     body: string;
     bodyEmpty: string;
