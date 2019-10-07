@@ -1,4 +1,4 @@
-/*Type definitions for Survey JavaScript library v1.1.10
+/*Type definitions for Survey JavaScript library v1.1.14
 Copyright (c) 2015-2019 Devsoft Baltic OÜ  - http://surveyjs.io/
 Definitions by: Devsoft Baltic OÜ <https://github.com/surveyjs/>
 */
@@ -54,6 +54,7 @@ export declare var defaultStandardCss: {
         content: string;
         contentLeft: string;
         titleLeftRoot: string;
+        requiredText: string;
         title: string;
         number: string;
         description: string;
@@ -63,10 +64,13 @@ export declare var defaultStandardCss: {
         hasError: string;
         indent: number;
         footer: string;
+        formGroup: string;
     };
     panel: {
         title: string;
         titleExpandable: string;
+        icon: string;
+        iconExpanded: string;
         description: string;
         container: string;
     };
@@ -80,13 +84,19 @@ export declare var defaultStandardCss: {
     boolean: {
         root: string;
         item: string;
-        itemDecorator: string;
+        control: string;
+        itemChecked: string;
+        itemIndeterminate: string;
+        itemDisabled: string;
+        switch: string;
+        slider: string;
         label: string;
-        materialDecorator: string;
+        disabledLabel: string;
     };
     checkbox: {
         root: string;
         item: string;
+        itemChecked: string;
         itemInline: string;
         label: string;
         itemControl: string;
@@ -109,6 +119,7 @@ export declare var defaultStandardCss: {
     matrix: {
         root: string;
         label: string;
+        itemChecked: string;
         itemDecorator: string;
         cellText: string;
         cellTextSelected: string;
@@ -147,6 +158,7 @@ export declare var defaultStandardCss: {
     radiogroup: {
         root: string;
         item: string;
+        itemChecked: string;
         itemInline: string;
         itemDecorator: string;
         label: string;
@@ -160,6 +172,7 @@ export declare var defaultStandardCss: {
     imagepicker: {
         root: string;
         item: string;
+        itemChecked: string;
         label: string;
         itemControl: string;
         image: string;
@@ -185,7 +198,10 @@ export declare var defaultStandardCss: {
         removeButton: string;
         fileInput: string;
         removeFile: string;
+        removeFileSvg: string;
         fileDecorator: string;
+        fileSignBottom: string;
+        removeButtonBottom: string;
     };
     saveData: {
         root: string;
@@ -243,15 +259,19 @@ export declare var defaultBootstrapCss: {
         title: string;
         number: string;
         description: string;
+        requiredText: string;
         comment: string;
         required: string;
         titleRequired: string;
         hasError: string;
         indent: number;
+        formGroup: string;
     };
     panel: {
         title: string;
         titleExpandable: string;
+        icon: string;
+        iconExpanded: string;
         description: string;
         container: string;
     };
@@ -265,13 +285,19 @@ export declare var defaultBootstrapCss: {
     boolean: {
         root: string;
         item: string;
-        itemDecorator: string;
+        control: string;
+        itemChecked: string;
+        itemIndeterminate: string;
+        itemDisabled: string;
+        switch: string;
+        slider: string;
         label: string;
-        materialDecorator: string;
+        disabledLabel: string;
     };
     checkbox: {
         root: string;
         item: string;
+        itemChecked: string;
         itemInline: string;
         itemControl: string;
         itemDecorator: string;
@@ -292,6 +318,7 @@ export declare var defaultBootstrapCss: {
     matrix: {
         root: string;
         label: string;
+        itemChecked: string;
         itemDecorator: string;
         cellText: string;
         cellTextSelected: string;
@@ -332,6 +359,7 @@ export declare var defaultBootstrapCss: {
     radiogroup: {
         root: string;
         item: string;
+        itemChecked: string;
         itemInline: string;
         label: string;
         itemControl: string;
@@ -345,6 +373,7 @@ export declare var defaultBootstrapCss: {
     imagepicker: {
         root: string;
         item: string;
+        itemChecked: string;
         itemInline: string;
         label: string;
         itemControl: string;
@@ -370,7 +399,10 @@ export declare var defaultBootstrapCss: {
         removeButton: string;
         fileInput: string;
         removeFile: string;
+        removeFileSvg: string;
         fileDecorator: string;
+        fileSignBottom: string;
+        removeButtonBottom: string;
     };
     saveData: {
         root: string;
@@ -425,6 +457,7 @@ export declare var defaultBootstrapMaterialCss: {
         content: string;
         contentLeft: string;
         titleLeftRoot: string;
+        requiredText: string;
         title: string;
         number: string;
         description: string;
@@ -433,10 +466,13 @@ export declare var defaultBootstrapMaterialCss: {
         titleRequired: string;
         hasError: string;
         indent: number;
+        formGroup: string;
     };
     panel: {
         title: string;
         titleExpandable: string;
+        icon: string;
+        iconExpanded: string;
         description: string;
         container: string;
     };
@@ -450,13 +486,19 @@ export declare var defaultBootstrapMaterialCss: {
     boolean: {
         root: string;
         item: string;
-        itemDecorator: string;
+        control: string;
+        itemChecked: string;
+        itemIndeterminate: string;
+        itemDisabled: string;
+        switch: string;
+        slider: string;
         label: string;
-        materialDecorator: string;
+        disabledLabel: string;
     };
     checkbox: {
         root: string;
         item: string;
+        itemChecked: string;
         itemInline: string;
         itemDecorator: string;
         itemControl: string;
@@ -482,6 +524,7 @@ export declare var defaultBootstrapMaterialCss: {
         cellTextSelected: string;
         cellLabel: string;
         itemValue: string;
+        itemChecked: string;
         itemDecorator: string;
     };
     matrixdropdown: {
@@ -522,6 +565,7 @@ export declare var defaultBootstrapMaterialCss: {
     radiogroup: {
         root: string;
         item: string;
+        itemChecked: string;
         itemInline: string;
         itemDecorator: string;
         label: string;
@@ -535,6 +579,7 @@ export declare var defaultBootstrapMaterialCss: {
     imagepicker: {
         root: string;
         item: string;
+        itemChecked: string;
         itemInline: string;
         label: string;
         itemControl: string;
@@ -560,7 +605,10 @@ export declare var defaultBootstrapMaterialCss: {
         removeButton: string;
         fileInput: string;
         removeFile: string;
+        removeFileSvg: string;
         fileDecorator: string;
+        fileSignBottom: string;
+        removeButtonBottom: string;
     };
     saveData: {
         root: string;
@@ -645,6 +693,7 @@ export declare var bemCss: {
         titleOnAnswer: string;
         titleOnError: string;
         title: string;
+        requiredText: string;
         number: string;
         description: string;
         comment: string;
@@ -654,6 +703,7 @@ export declare var bemCss: {
         hasAnswer: string;
         indent: number;
         footer: string;
+        formGroup: string;
     };
     error: {
         root: string;
@@ -665,6 +715,9 @@ export declare var bemCss: {
     checkbox: {
         root: string;
         item: string;
+        itemDisabled: string;
+        itemChecked: string;
+        itemHover: string;
         itemInline: string;
         label: string;
         itemControl: string;
@@ -679,6 +732,9 @@ export declare var bemCss: {
         item: string;
         itemInline: string;
         label: string;
+        itemDisabled: string;
+        itemChecked: string;
+        itemHover: string;
         itemControl: string;
         itemDecorator: string;
         controlLabel: string;
@@ -691,12 +747,13 @@ export declare var bemCss: {
         root: string;
         item: string;
         control: string;
-        checkedMark: string;
-        uncheckedMark: string;
-        undefinedMark: string;
-        itemDecorator: string;
+        itemChecked: string;
+        itemIndeterminate: string;
+        itemDisabled: string;
+        switch: string;
+        slider: string;
         label: string;
-        materialDecorator: string;
+        disabledLabel: string;
     };
     text: {
         root: string;
@@ -722,6 +779,9 @@ export declare var bemCss: {
         root: string;
         item: string;
         itemInline: string;
+        itemChecked: string;
+        itemDisabled: string;
+        itemHover: string;
         label: string;
         itemControl: string;
         image: string;
@@ -729,15 +789,20 @@ export declare var bemCss: {
         clearButton: string;
     };
     matrix: {
+        tableWrapper: string;
         root: string;
         cell: string;
         headerCell: string;
         label: string;
         itemValue: string;
+        itemChecked: string;
+        itemDisabled: string;
+        itemHover: string;
         materialDecorator: string;
         itemDecorator: string;
         cellText: string;
         cellTextSelected: string;
+        cellTextDisabled: string;
     };
     matrixdropdown: {
         root: string;
@@ -772,14 +837,17 @@ export declare var bemCss: {
         root: string;
         placeholderInput: string;
         preview: string;
-        highlighted: string;
+        fileSign: string;
+        fileSignBottom: string;
         fileDecorator: string;
         fileInput: string;
         noFileChosen: string;
         chooseFile: string;
         disabled: string;
         removeButton: string;
+        removeButtonBottom: string;
         removeFile: string;
+        removeFileSvg: string;
     };
     saveData: {
         root: string;
@@ -953,7 +1021,8 @@ export declare class Text extends QuestionVue<QuestionTextModel> {
 
 
 export declare class Boolean extends QuestionVue<QuestionBooleanModel> {
-    readonly itemClass: string;
+    readonly itemClass: any;
+    getLabelClass(checked: boolean): string;
 }
 
 
@@ -975,16 +1044,12 @@ export declare class Matrix extends QuestionVue<QuestionMatrixModel> {
 
 
 export declare class Dropdown extends QuestionVue<QuestionDropdownModel> {
-    value: any;
     readonly isOtherSelected: boolean;
 }
 
 
 export declare class File extends QuestionVue<QuestionFileModel> {
-    readonly fileRootClass: string;
     onDragOver: (event: any) => void;
-    onDragEnter: (event: any) => void;
-    onDragLeave: (event: any) => void;
     onDrop: (event: any) => void;
     doChange(event: any): void;
     doClean(event: any): void;
@@ -1152,20 +1217,58 @@ export declare class ElementHeader extends Vue {
 
 
 /**
-  * Global survey settings
-  */
+    * Global survey settings
+    */
 export declare var settings: {
-    commentPrefix: string;
-    webserviceEncodeParameters: boolean;
-    surveyServiceUrl: string;
-    itemValueSeparator: string;
-    defaultLocaleName: string;
-    matrixDefaultRowName: string;
-    matrixDefaultCellType: string;
-    matrixTotalValuePostFix: string;
-    matrixMaximumRowCount: number;
-    panelMaximumPanelCount: number;
-    ratingMaximumRateValueCount: number;
+        /**
+            * The prefix that uses to store the question comment, as {questionName} + {commentPrefix}.
+            * The default
+            */
+        commentPrefix: string;
+        /**
+            * Encode parameter on calling restfull web API
+            */
+        webserviceEncodeParameters: boolean;
+        /**
+            * SurveyJS web service API url
+            */
+        surveyServiceUrl: string;
+        /**
+            * separator that can allow to set value and text of ItemValue object in one string as: "value|text"
+            */
+        itemValueSeparator: string;
+        /**
+            * default locale name for localizable strings that uses during serialization, {"default": "My text", "de": "Mein Text"}
+            */
+        defaultLocaleName: string;
+        /**
+            * Default row name for matrix (single choice)
+            */
+        matrixDefaultRowName: string;
+        /**
+            * Default cell type for dropdown and dynamic matrices
+            */
+        matrixDefaultCellType: string;
+        /**
+            * Total value postfix for dropdown and dynamic matrices. The total value stores as: {matrixName} + {postfix}
+            */
+        matrixTotalValuePostFix: string;
+        /**
+            * Maximum row count in dynamic matrix
+            */
+        matrixMaximumRowCount: number;
+        /**
+            * Maximum panel count in dynamic panel
+            */
+        panelMaximumPanelCount: number;
+        /**
+            * Maximum rate value count in rating question
+            */
+        ratingMaximumRateValueCount: number;
+        /**
+            * Disable the question while choices are getting from the web service
+            */
+        disableOnGettingChoicesFromWeb: boolean;
 };
 
 export interface HashTable<T> {
@@ -1182,6 +1285,7 @@ export declare class Helpers {
     static isTwoValueEquals(x: any, y: any, ignoreOrder?: boolean): boolean;
     static randomizeArray<T>(array: Array<T>): Array<T>;
     static getUnbindValue(value: any): any;
+    static isNumber(value: any): boolean;
     static getMaxLength(maxLength: number, surveyLength: number): any;
 }
 
@@ -1212,7 +1316,7 @@ export declare class SurveyValidator extends Base {
         toString(): string;
 }
 export interface IValidatorOwner {
-        validators: Array<SurveyValidator>;
+        getValidators(): Array<SurveyValidator>;
         validatedValue: any;
         getValidatorTitle(): string;
         getDataFilteredValues(): any;
@@ -1368,10 +1472,12 @@ export interface ISurvey extends ITextProcessor, ISurveyErrorOwner {
         areInvisibleElementsShowing: boolean;
         isLoadingFromJson: boolean;
         requiredText: string;
+        beforeSettingQuestionErrors(question: IQuestion, errors: Array<SurveyError>): void;
         getQuestionTitleTemplate(): string;
         getUpdatedQuestionTitle(question: IQuestion, title: string): string;
         questionStartIndex: string;
         questionTitleLocation: string;
+        questionDescriptionLocation: string;
         questionErrorLocation: string;
         storeOthersAsComment: boolean;
         maxTextLength: number;
@@ -1416,6 +1522,7 @@ export interface ISurveyElement {
         isVisible: boolean;
         isReadOnly: boolean;
         isPage: boolean;
+        containsErrors: boolean;
         setSurveyImpl(value: ISurveyImpl): any;
         onSurveyLoad(): any;
         onFirstRendering(): any;
@@ -1570,6 +1677,7 @@ export declare class Base {
 export declare class SurveyError {
         text: string;
         protected errorOwner: ISurveyErrorOwner;
+        visible: boolean;
         constructor(text?: string, errorOwner?: ISurveyErrorOwner);
         readonly locText: LocalizableString;
         getText(): string;
@@ -1611,6 +1719,13 @@ export declare class SurveyElement extends Base implements ISurveyElement {
             * @see hasErrors
             */
         errors: Array<SurveyError>;
+        /**
+            * Returns true if a question or a container (panel/page) or their chidren have an error.
+            * The value can be out of date. hasErrors function should be called to get the correct value.
+            */
+        readonly containsErrors: boolean;
+        updateContainsErrors(): void;
+        protected getContainsErrors(): boolean;
         getElementsInDesign(includeHidden?: boolean): Array<IElement>;
         selectedElementInDesign: SurveyElement;
         updateCustomWidgets(): void;
@@ -1819,6 +1934,7 @@ export declare class ChoicesRestfull extends Base {
     protected processedUrl: string;
     protected processedPath: string;
     getResultCallback: (items: Array<ItemValue>) => void;
+    beforeSendRequestCallback: () => void;
     updateResultCallback: (items: Array<ItemValue>, serverResult: any) => Array<ItemValue>;
     getItemValueCallback: (item: any) => any;
     error: SurveyError;
@@ -1842,6 +1958,7 @@ export declare class ChoicesRestfull extends Base {
     allowEmptyResponse: boolean;
     readonly itemValueType: string;
     clear(): void;
+    protected beforeSendRequest(): void;
     protected onLoad(result: any): void;
 }
 
@@ -1989,6 +2106,7 @@ export declare class JsonObjectProperty implements IObject {
     baseClassName: string;
     defaultValueValue: any;
     serializationProperty: string;
+    maxLength: number;
     layout: string;
     onGetValue: (obj: any) => any;
     onSetValue: (obj: any, value: any, jsonConv: JsonObject) => any;
@@ -2100,6 +2218,7 @@ export declare class JsonObject {
     lightSerializing: boolean;
     toJsonObject(obj: any, storeDefaults?: boolean): any;
     toObject(jsonObj: any, obj: any): void;
+    toObjectCore(jsonObj: any, obj: any): void;
     protected toJsonObjectCore(obj: any, property: JsonObjectProperty, storeDefaults?: boolean): any;
     valueToJson(obj: any, result: any, property: JsonObjectProperty, storeDefaults?: boolean): void;
     protected valueToObj(value: any, obj: any, property: JsonObjectProperty): void;
@@ -2198,6 +2317,7 @@ export declare class MatrixDropdownColumn extends Base implements ILocalizableOw
         totalDisplayStyle: string;
         totalCurrency: string;
         minWidth: string;
+        width: string;
         colCount: number;
         getLocale(): string;
         getMarkdownHtml(text: string): string;
@@ -2283,6 +2403,7 @@ export declare class MatrixDropdownTotalRowModel extends MatrixDropdownRowModelB
 }
 export declare class QuestionMatrixDropdownRenderedCell {
         minWidth: string;
+        width: string;
         locTitle: LocalizableString;
         cell: MatrixDropdownCell;
         row: MatrixDropdownRowModelBase;
@@ -2304,6 +2425,7 @@ export declare class QuestionMatrixDropdownRenderedTable extends Base {
         constructor(matrix: QuestionMatrixDropdownModelBase);
         readonly showHeader: boolean;
         readonly showFooter: boolean;
+        readonly hasFooter: boolean;
         readonly hasRemoveRow: boolean;
         isRequireReset(): boolean;
         readonly headerRow: QuestionMatrixDropdownRenderedRow;
@@ -2346,6 +2468,7 @@ export declare class QuestionMatrixDropdownModelBase extends QuestionMatrixBaseM
             */
         readonly isColumnLayoutHorizontal: boolean;
         readonly hasRowText: boolean;
+        getFooterText(): LocalizableString;
         readonly canRemoveRow: boolean;
         protected onRowsChanged(): void;
         protected onStartRowAddingRemoving(): void;
@@ -2436,6 +2559,8 @@ export declare class QuestionMatrixDropdownModelBase extends QuestionMatrixBaseM
         protected onBeforeValueChanged(val: any): void;
         protected setQuestionValue(newValue: any): void;
         supportGoNextPageAutomatic(): boolean;
+        protected getContainsErrors(): boolean;
+        protected getIsAnswered(): boolean;
         hasErrors(fireCallback?: boolean, rec?: any): boolean;
         protected getIsRunningValidators(): boolean;
         getAllErrors(): Array<SurveyError>;
@@ -2478,12 +2603,12 @@ export declare class QuestionMatrixDropdownModel extends QuestionMatrixDropdownM
             */
         totalText: string;
         readonly locTotalText: LocalizableString;
+        getFooterText(): LocalizableString;
         protected getDisplayValueCore(keysAsText: boolean): any;
         addConditionNames(names: Array<string>): void;
         addConditionObjectsByContext(objects: Array<IConditionObject>, context: any): void;
         clearIncorrectValues(): void;
         clearValueIfInvisible(): void;
-        protected getRowName(row: any): any;
         protected generateRows(): Array<MatrixDropdownRowModel>;
         protected createMatrixRow(item: ItemValue, value: any): MatrixDropdownRowModel;
 }
@@ -2698,6 +2823,7 @@ export declare class QuestionMatrixModel extends QuestionMatrixBaseModel<MatrixR
         getCellDisplayLocText(row: any, column: any): LocalizableString;
         supportGoNextPageAutomatic(): boolean;
         protected onCheckForErrors(errors: Array<SurveyError>): void;
+        protected getIsAnswered(): boolean;
         protected createMatrixRow(item: ItemValue, fullName: string, value: any): MatrixRowModel;
         protected setQuestionValue(newValue: any): void;
         getDisplayValueCore(keysAsText: boolean): any;
@@ -2777,6 +2903,7 @@ export declare class MultipleTextItemModel extends Base implements IValidatorOwn
             * The list of question validators.
             */
         validators: Array<SurveyValidator>;
+        getValidators(): Array<SurveyValidator>;
         /**
             * The item value.
             */
@@ -2848,6 +2975,8 @@ export declare class QuestionMultipleTextModel extends Question implements IMult
         hasErrors(fireCallback?: boolean, rec?: any): boolean;
         getAllErrors(): Array<SurveyError>;
         clearErrors(): void;
+        protected getContainsErrors(): boolean;
+        protected getIsAnswered(): boolean;
         getMultipleTextValue(name: string): any;
         setMultipleTextValue(name: string, value: any): void;
         getItemDefaultValue(name: string): any;
@@ -2997,6 +3126,7 @@ export declare class PanelModelBase extends SurveyElement implements IPanel, ICo
         hasErrors(fireCallback?: boolean, focuseOnFirstError?: boolean, rec?: any): boolean;
         getErrorCustomText(text: string, error: SurveyError): string;
         protected hasErrorsCore(rec: any): void;
+        protected getContainsErrors(): boolean;
         updateElementVisibility(): void;
         getFirstQuestionToFocus(withError?: boolean): Question;
         /**
@@ -3451,6 +3581,15 @@ export declare class Question extends SurveyElement implements IQuestion, ICondi
         description: string;
         readonly locDescription: LocalizableString;
         /**
+            * Question description location. By default, value is "default" and it depends on survey questionDescriptionLocation property
+            * You may change it to "underInput" to render it under question input or "underTitle" to rendered it under title.
+            * @see description
+            * @see Survey.questionDescriptionLocation
+            */
+        descriptionLocation: string;
+        readonly hasDescriptionUnderTitle: boolean;
+        readonly hasDescriptionUnderInput: boolean;
+        /**
             * The custom text that will be shown on required error. Use this property, if you do not want to show the default text.
             */
         requiredErrorText: string;
@@ -3633,10 +3772,14 @@ export declare class Question extends SurveyElement implements IQuestion, ICondi
             * Returns true if the question value is empty
             */
         isEmpty(): boolean;
+        isAnswered: boolean;
+        protected updateIsAnswered(): void;
+        protected getIsAnswered(): boolean;
         /**
             * The list of question validators.
             */
         validators: Array<SurveyValidator>;
+        getValidators(): Array<SurveyValidator>;
         addConditionNames(names: Array<string>): void;
         addConditionObjectsByContext(objects: Array<IConditionObject>, context: any): void;
         getConditionJson(operator?: string, path?: string): any;
@@ -3682,7 +3825,7 @@ export declare class Question extends SurveyElement implements IQuestion, ICondi
         protected setNewComment(newValue: string): void;
         updateValueFromSurvey(newValue: any): void;
         updateCommentFromSurvey(newValue: any): any;
-        protected setQuestionValue(newValue: any): void;
+        protected setQuestionValue(newValue: any, updateIsAnswered?: boolean): void;
         onSurveyValueChanged(newValue: any): void;
         setVisibleIndex(val: number): number;
         removeElement(element: IElement): boolean;
@@ -3867,6 +4010,7 @@ export declare class QuestionSelectBase extends Question {
         protected getStoreOthersAsComment(): boolean;
         onSurveyLoad(): void;
         onAnyValueChanged(name: string): void;
+        protected onBeforeSendRequest(): void;
         protected onLoadChoicesFromUrl(array: Array<ItemValue>): void;
         protected onVisibleChoicesChanged(): void;
         clearIncorrectValues(): void;
@@ -4293,6 +4437,7 @@ export declare class QuestionTextModel extends Question {
             * Use this property to change the default input type.
             */
         inputType: string;
+        getValidators(): Array<SurveyValidator>;
         isLayoutTypeSupported(layoutType: string): boolean;
         /**
             * The maximim text length. If it is -1, defaul value, then the survey maxTextLength property will be used.
@@ -4341,6 +4486,7 @@ export declare class QuestionBooleanModel extends Question {
             */
         defaultValue: any;
         getDefaultValue(): any;
+        readonly locTitle: LocalizableString;
         /**
             * The checkbox label. If it is empty and showTitle is false then title is rendered
             * @see showTitle
@@ -4353,6 +4499,8 @@ export declare class QuestionBooleanModel extends Question {
             * Set this property to true to show the question title. It is hidden by default.
             */
         showTitle: boolean;
+        readonly checkedLabel: string;
+        readonly uncheckedLabel: string;
         /**
             * Set this property, if you want to have a different value from true when check is set.
             */
@@ -4743,6 +4891,8 @@ export declare class QuestionPanelDynamicModel extends Question implements IQues
         protected runPanelsCondition(values: HashTable<any>, properties: HashTable<any>): void;
         onAnyValueChanged(name: string): void;
         hasErrors(fireCallback?: boolean, rec?: any): boolean;
+        protected getContainsErrors(): boolean;
+        protected getIsAnswered(): boolean;
         clearValueIfInvisible(): void;
         protected getIsRunningValidators(): boolean;
         getAllErrors(): Array<SurveyError>;
@@ -4956,8 +5106,17 @@ export declare class SurveyModel extends Base implements ISurvey, ISurveyData, I
             * <br/> options.value the current question value
             * <br/> options.error an error string. It is empty by default.
             * @see onServerValidateQuestions
+            * @see onSettingQuestionErrors
             */
         onValidateQuestion: Event<(sender: SurveyModel, options: any) => any, any>;
+        /**
+            * The event is fired before errors are setting into question. You may add/remove/modify errors for a question.
+            * <br/> sender the survey object that fires the event
+            * <br/> options.question a question
+            * <br/> options.errors the list of errors. The list can be empty if by default there is no errors
+            * @see onValidateQuestion
+            */
+        onSettingQuestionErrors: Event<(sender: SurveyModel, options: any) => any, any>;
         /**
             * Use this event to validate data on your server.
             * <br/> sender the survey object that fires the event
@@ -5378,6 +5537,11 @@ export declare class SurveyModel extends Base implements ISurvey, ISurveyData, I
             */
         requiredText: string;
         /**
+            * Set this property to true to make all requried errors invisible
+            */
+        hideRequiredErrors: boolean;
+        beforeSettingQuestionErrors(question: IQuestion, errors: Array<SurveyError>): void;
+        /**
             * By default the first question index is 1. You may start it from 100 or from 'A', by setting 100 or 'A' to this property.
             * @see Question.title
             * @see requiredText
@@ -5574,6 +5738,10 @@ export declare class SurveyModel extends Base implements ISurvey, ISurveyData, I
             * Set this property to 'bottom' to show question error(s) under the question.
             */
         questionErrorLocation: string;
+        /**
+            * Set this property to 'underInput' to show question description under the question input instead of question title.
+            */
+        questionDescriptionLocation: string;
         /**
             * Set this mode to 'display' to make the survey read-only. The default value is 'edit'.
             */
@@ -6399,6 +6567,8 @@ export declare var englishStrings: {
     clearCaption: string;
     chooseFileCaption: string;
     removeFileCaption: string;
+    booleanCheckedLabel: string;
+    booleanUncheckedLabel: string;
 };
 
 export declare var surveyLocalization: {
@@ -6482,6 +6652,8 @@ export declare var surveyStrings: {
     clearCaption: string;
     chooseFileCaption: string;
     removeFileCaption: string;
+    booleanCheckedLabel: string;
+    booleanUncheckedLabel: string;
 };
 
 export declare class QuestionCustomWidget {
@@ -6616,6 +6788,5 @@ export declare class QuestionMatrixBaseModel<TRow, TColumn> extends Question {
         protected runItemsCondition(values: HashTable<any>, properties: HashTable<any>): boolean;
         clearIncorrectValues(): void;
         protected clearInvisibleValuesInRows(): void;
-        protected getRowName(row: any): any;
 }
 
