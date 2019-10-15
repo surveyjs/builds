@@ -179,6 +179,10 @@
   margin-top: 0.69em;
   margin-left: 1em; }
 
+.sv-paneldynamic__separator {
+  border: none;
+  border-bottom: 0.06em solid #d4d4d4; }
+
 .sv-row__question {
   vertical-align: top;
   white-space: normal; }
@@ -244,6 +248,12 @@
   font-size: 0.74em;
   font-weight: bold; }
 
+.sv-question__erbox--location--top {
+  margin-bottom: 0.4375em; }
+
+.sv-question__erbox--location--bottom {
+  margin-top: 0.4375em; }
+
 .sv-question__footer {
   padding: 0.87em 0; }
 
@@ -258,7 +268,7 @@
 
 .sv-question__header--location--left {
   float: left;
-  max-width: 27%;
+  width: 27%;
   margin-right: 0.875em; }
 
 .sv-question__header--location--bottom {
@@ -509,35 +519,38 @@
 .sv-radio--disabled.sv-radio--checked .sv-radio__svg {
   fill: #dbdbdb; }
 
+.sv-boolean {
+  display: block;
+  line-height: 1.5em; }
+
 .sv-boolean__switch {
-  display: inline-block;
+  float: left;
   box-sizing: border-box;
-  width: 63px;
-  height: 24px;
-  margin-right: 17px;
-  margin-left: 21px;
-  padding: 2px 3px;
-  vertical-align: middle;
-  border-radius: 12px; }
+  width: 4em;
+  height: 1.5em;
+  margin-right: 1.0625em;
+  margin-left: 1.3125em;
+  padding: 0.125em 0.1875em;
+  border-radius: 0.75em; }
 
 .sv-boolean__slider {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
+  display: block;
+  width: 1.25em;
+  height: 1.25em;
   transition-duration: 0.1s;
   transition-property: margin-left;
   transition-timing-function: linear;
   border: none;
   border-radius: 100%; }
 
-.sv-boolean__label {
-  vertical-align: middle; }
-
 .sv-boolean--indeterminate .sv-boolean__slider {
-  margin-left: calc(50% - 10px); }
+  margin-left: calc(50% - 0.625em); }
 
 .sv-boolean--checked .sv-boolean__slider {
-  margin-left: calc(100% - 20px); }
+  margin-left: calc(100% - 1.25em); }
+
+.sv-boolean__label {
+  float: left; }
 
 .sv-imagepicker__item {
   border: none;
@@ -683,7 +696,8 @@
   font-weight: bold;
   line-height: 1.13;
   cursor: pointer;
-  margin-right: 0.26em; }
+  margin-right: 0.26em;
+  box-sizing: content-box; }
   .sv-rating__item-text span {
     margin-top: 0.44em;
     display: block; }

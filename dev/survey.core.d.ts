@@ -1,4 +1,4 @@
-/*Type definitions for Survey JavaScript library v1.1.14
+/*Type definitions for Survey JavaScript library v1.1.15
 Copyright (c) 2015-2019 Devsoft Baltic OÜ  - http://surveyjs.io/
 Definitions by: Devsoft Baltic OÜ <https://github.com/surveyjs/>
 */
@@ -6,7 +6,7 @@ Definitions by: Devsoft Baltic OÜ <https://github.com/surveyjs/>
 import "./chunks/localization";
 
 import "../../main.scss";
-import "../../bem.scss";
+import "../../modern.scss";
 export let Version: string;
 
 export var __assign: any;
@@ -5508,7 +5508,7 @@ export declare class StylesManager {
     static ThemeCss: {
         [key: string]: string;
     };
-    static bemThemeCss: {
+    static modernThemeCss: {
         [key: string]: string;
     };
     static bootstrapThemeCss: {

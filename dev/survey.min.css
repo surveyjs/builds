@@ -1,5 +1,5 @@
 /*!
- * surveyjs - Survey JavaScript library v1.1.14
+ * surveyjs - Survey JavaScript library v1.1.15
  * Copyright (c) 2015-2019 Devsoft Baltic OÜ  - http://surveyjs.io/
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
  */
@@ -103,7 +103,8 @@
     background-color: white;
     border-top: 2px solid #1ab394; }
   .sv_main .sv_progress {
-    background-color: #e7e7e7; }
+    background-color: #e7e7e7;
+    margin-bottom: 2em; }
   .sv_main .sv_progress_bar {
     background-color: #1ab394; }
   .sv_main .sv_p_root > .sv_row {

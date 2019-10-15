@@ -1,4 +1,4 @@
-/*Type definitions for Survey JavaScript library v1.1.14
+/*Type definitions for Survey JavaScript library v1.1.15
 Copyright (c) 2015-2019 Devsoft Baltic OÜ  - http://surveyjs.io/
 Definitions by: Devsoft Baltic OÜ <https://github.com/surveyjs/>
 */
@@ -16,7 +16,7 @@ export class SurveyWindowNG {
 }
 
 import "../../main.scss";
-import "../../bem.scss";
+import "../../modern.scss";
 export let Version: string;
 
 export var __assign: any;
@@ -634,7 +634,7 @@ export declare var defaultBootstrapMaterialCss: {
     };
 };
 
-export declare var bemCss: {
+export declare var modernCss: {
     root: string;
     container: string;
     header: string;
@@ -671,6 +671,7 @@ export declare var bemCss: {
         progress: string;
         progressBar: string;
         progressText: string;
+        separator: string;
     };
     progress: string;
     progressBar: string;
@@ -703,8 +704,6 @@ export declare var bemCss: {
         comment: string;
         required: string;
         titleRequired: string;
-        hasError: string;
-        hasAnswer: string;
         indent: number;
         footer: string;
         formGroup: string;
@@ -6369,7 +6368,7 @@ export declare class StylesManager {
     static ThemeCss: {
         [key: string]: string;
     };
-    static bemThemeCss: {
+    static modernThemeCss: {
         [key: string]: string;
     };
     static bootstrapThemeCss: {
