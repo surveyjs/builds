@@ -1,4 +1,4 @@
-/*Type definitions for SurveyJS Creator JavaScript library v1.1.15
+/*Type definitions for SurveyJS Creator JavaScript library v1.1.19
 (c) Devsoft Baltic O� - http://surveyjs.io/
 Github: https://github.com/surveyjs/survey-creator
 License: https://surveyjs.io/Licenses#BuildSurvey
@@ -1266,6 +1266,7 @@ export declare class DragDropHelper {
 }
 
 export declare class EditableObject {
+    static getOrigionalSurvey(survey: Survey.SurveyModel): Survey.SurveyModel;
     constructor(obj: Survey.Base);
     readonly obj: Survey.Base;
     readonly editableObj: Survey.Base;
@@ -1332,6 +1333,8 @@ export declare class SurveyPropertyEditorBase implements Survey.ILocalizableOwne
     isInplaceProperty: boolean;
     readOnly: any;
     koMaxLength: any;
+    koMaxValue: any;
+    koMinValue: any;
     onChanged: (newValue: any) => any;
     onGetLocale: () => string;
     onValueUpdated: (newValue: any) => any;
@@ -1702,6 +1705,8 @@ export declare class SurveyPropertyDefaultValueEditor extends SurveyPropertyModa
     survey: Survey.Survey;
     koSurvey: any;
     constructor(property: Survey.JsonObjectProperty);
+    resetText(): string;
+    resetValue(model: SurveyPropertyDefaultValueEditor): void;
     getValueText(value: any): string;
     beforeShow(): void;
     protected onBeforeApply(): void;
@@ -2578,13 +2583,13 @@ export interface ISurveyLogicType {
     createTemplateObject?: (element: Survey.Base) => any;
     isUniqueItem?: boolean;
     questionNames?: Array<string>;
-    getDisplayText?: (element: Survey.Base, formatStr: string) => string;
+    getDisplayText?: (element: Survey.Base, formatStr: string, lt: SurveyLogicType) => string;
     getDisplayTextName?: (element: Survey.Base) => string;
 }
 export declare class SurveyLogicType {
     survey: Survey.SurveyModel;
     options: ISurveyObjectEditorOptions;
-    static formatElName(name: string): string;
+    static expressionToDisplayText(survey: Survey.SurveyModel, options: ISurveyObjectEditorOptions, expression: string): string;
     koVisible: any;
     constructor(logicType: ISurveyLogicType, survey: Survey.SurveyModel, options?: ISurveyObjectEditorOptions);
     readonly name: string;
@@ -2605,6 +2610,8 @@ export declare class SurveyLogicType {
     readonly displayName: string;
     readonly description: string;
     getDisplayText(element: Survey.Base): string;
+    formatElName(name: string): string;
+    formatExpression(expression: string): string;
 }
 export declare class SurveyLogicOperation {
     logicType: SurveyLogicType;
@@ -2626,6 +2633,7 @@ export interface ISurveyLogicItemOwner {
     readOnly: boolean;
     editItem(item: SurveyLogicItem): any;
     removeItem(item: SurveyLogicItem): any;
+    getExpressionAsDisplayText(expression: string): string;
 }
 export declare class SurveyLogicItem {
     expression: string;
@@ -2695,7 +2703,7 @@ export declare class SurveyLogic implements ISurveyLogicItemOwner {
         baseClass: string;
         propertyName: string;
         questionNames: string[];
-        getDisplayText: (element: Survey.Base, formatStr: string) => string;
+        getDisplayText: (element: Survey.Base, formatStr: string, lt: SurveyLogicType) => string;
         showIf?: undefined;
         showInUI?: undefined;
         isUniqueItem?: undefined;
@@ -2775,6 +2783,7 @@ export declare class SurveyLogic implements ISurveyLogicItemOwner {
     removeItem(item: SurveyLogicItem): void;
     addNewOperation(logicType: SurveyLogicType): SurveyLogicOperation;
     removeOperation(op: SurveyLogicOperation): void;
+    getExpressionAsDisplayText(expression: string): string;
     protected buildItems(showInUI: boolean): Array<SurveyLogicItem>;
     protected getAllElements(): Array<Survey.Base>;
     protected createLogicTypes(): Array<SurveyLogicType>;
@@ -3128,6 +3137,14 @@ export declare class SurveyCreator implements ISurveyObjectEditorOptions {
             * <br/> options.changeType: There are three possible values: "new", "modify" and "delete"
             */
         onModified: Survey.Event<(sender: SurveyCreator, options: any) => any, any>;
+        /**
+            * The event is fired on changing question, panel or page name.
+            * <br/> sender the survey creator object that fires the event
+            * <br/> options.obj the object (question, panel or page)
+            * <br/> options.oldName the previous name of the element
+            * <br/> options.newName the new name of the element
+            */
+        onElementNameChanged: Survey.Event<(sender: SurveyCreator, options: any) => any, any>;
         /**
             * The event is fired when the survey creator creates a survey object (Survey.Survey).
             * <br/> sender the survey creator object that fires the event
@@ -3865,7 +3882,7 @@ export declare var imageItemsAdorner: {
     afterRender: (elements: HTMLElement[], model: Survey.QuestionSelectBase, editor: any) => void;
 };
 export declare var addImageItemAdorner: {
-    getMarkerClass: (model: any) => "" | "sv_imgsel";
+    getMarkerClass: (model: any) => "" | "sv_imagepicker_root";
     getElementName: (model: any) => string;
     afterRender: (elements: HTMLElement[], model: Survey.QuestionSelectBase, editor: any) => void;
 };

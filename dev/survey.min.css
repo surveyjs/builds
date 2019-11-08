@@ -1,5 +1,5 @@
 /*!
- * surveyjs - Survey JavaScript library v1.1.15
+ * surveyjs - Survey JavaScript library v1.1.19
  * Copyright (c) 2015-2019 Devsoft Baltic OÜ  - http://surveyjs.io/
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
  */
@@ -144,6 +144,10 @@
     background-color: #1ab394; }
   .sv_main .sv_q_file_remove:hover {
     color: #1ab394; }
+  .sv_main .sv-boolean__switch {
+    background-color: #1ab394; }
+  .sv_main .sv-boolean__slider {
+    background-color: white; }
 
 .sv_main {
   position: relative;
@@ -174,7 +178,6 @@
       .sv_main .sv_container .sv_header h3 {
         font-size: 2em;
         font-weight: 300;
-        text-align: left;
         margin: 0; }
     .sv_main .sv_container .sv_body {
       padding: 1em 1em 1.6428em 1em; }
@@ -339,7 +342,6 @@
           margin-right: 1.5em; }
         .sv_main .sv_container .sv_body .sv_p_root table td,
         .sv_main .sv_container .sv_body .sv_p_root table th {
-          text-align: left;
           padding: 0 1em; }
         .sv_main .sv_container .sv_body .sv_p_root table td {
           padding: 0.5em; }
@@ -390,6 +392,22 @@
           float: right; }
         .sv_main .sv_container .sv_body .sv_nav .sv_prev_btn {
           float: left; }
+
+[dir="rtl"] .sv_main input, [style*="direction:rtl"] .sv_main input {
+  text-align: right; }
+
+[dir="rtl"] .sv_main th, [style*="direction:rtl"] .sv_main th {
+  text-align: right; }
+
+[dir="rtl"] .sv_main .sv_container .sv_body .sv_nav .sv_start_btn,
+[dir="rtl"] .sv_main .sv_container .sv_body .sv_nav .sv_next_btn,
+[dir="rtl"] .sv_main .sv_container .sv_body .sv_nav .sv_complete_btn, [style*="direction:rtl"] .sv_main .sv_container .sv_body .sv_nav .sv_start_btn,
+[style*="direction:rtl"] .sv_main .sv_container .sv_body .sv_nav .sv_next_btn,
+[style*="direction:rtl"] .sv_main .sv_container .sv_body .sv_nav .sv_complete_btn {
+  float: left; }
+
+[dir="rtl"] .sv_main .sv_container .sv_body .sv_nav .sv_prev_btn, [style*="direction:rtl"] .sv_main .sv_container .sv_body .sv_nav .sv_prev_btn {
+  float: right; }
 
 @media (max-width: 600px) {
   .sv_main .sv_container .sv_body .sv_p_root .sv_row .sv_q,
@@ -450,6 +468,3 @@
     .sv_main .sv_container .sv_body .sv_p_root .sv_row .sv_q table.sv_q_matrix td:after,
     .sv_main .sv_container .sv_body .sv_p_root .sv_row .sv_qstn table.sv_q_matrix td:after {
       content: attr(headers); } }
-
-.sv-hidden {
-  display: none; }

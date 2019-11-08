@@ -1,4 +1,4 @@
-/*Type definitions for Survey JavaScript library v1.1.15
+/*Type definitions for Survey JavaScript library v1.1.19
 Copyright (c) 2015-2019 Devsoft Baltic OÜ  - http://surveyjs.io/
 Definitions by: Devsoft Baltic OÜ <https://github.com/surveyjs/>
 */
@@ -354,7 +354,7 @@ export interface IQuestion extends IElement, ISurveyErrorOwner {
         updateCommentFromSurvey(newValue: any): any;
         supportGoNextPageAutomatic(): boolean;
         clearUnusedValues(): any;
-        getDisplayValue(keysAsText: boolean): any;
+        getDisplayValue(keysAsText: boolean, value: any): any;
         getValueName(): string;
         clearValue(): any;
         clearValueIfInvisible(): any;
@@ -793,7 +793,8 @@ export declare class ExpressionRunner extends ExpressionRunnerBase {
 }
 
 export declare abstract class Operand {
-    abstract toString(): string;
+    toString(func?: (op: Operand) => string): string;
+    abstract getType(): string;
     abstract evaluate(processValue?: ProcessValue): any;
     abstract setVariables(variables: Array<string>): any;
     hasFunction(): boolean;
@@ -802,8 +803,13 @@ export declare abstract class Operand {
 }
 export declare class BinaryOperand extends Operand {
     constructor(operatorName: string, left?: any, right?: any, isArithmeticOp?: boolean);
+    getType(): string;
+    readonly isArithmetic: boolean;
+    readonly isConjunction: boolean;
+    readonly leftOperand: any;
+    readonly rightOperand: any;
     evaluate(processValue?: ProcessValue): any;
-    toString(): string;
+    toString(func?: (op: Operand) => string): string;
     setVariables(variables: Array<string>): void;
     hasFunction(): boolean;
     hasAsyncFunction(): boolean;
@@ -811,13 +817,15 @@ export declare class BinaryOperand extends Operand {
 }
 export declare class UnaryOperand extends Operand {
     constructor(expression: Operand, operatorName: string);
-    toString(): string;
+    getType(): string;
+    toString(func?: (op: Operand) => string): string;
     evaluate(processValue?: ProcessValue): boolean;
     setVariables(variables: Array<string>): void;
 }
 export declare class ArrayOperand extends Operand {
     constructor(values: Array<Operand>);
-    toString(): string;
+    getType(): string;
+    toString(func?: (op: Operand) => string): string;
     evaluate(processValue?: ProcessValue): Array<any>;
     setVariables(variables: Array<string>): void;
     hasFunction(): boolean;
@@ -826,23 +834,28 @@ export declare class ArrayOperand extends Operand {
 }
 export declare class Const extends Operand {
     constructor(value: any);
-    toString(): string;
+    getType(): string;
+    toString(func?: (op: Operand) => string): string;
+    readonly correctValue: any;
     evaluate(): any;
     setVariables(variables: Array<string>): void;
     protected getCorrectValue(value: any): any;
 }
 export declare class Variable extends Const {
     constructor(variableName: string);
-    toString(): string;
+    getType(): string;
+    toString(func?: (op: Operand) => string): string;
+    readonly variable: string;
     evaluate(processValue?: ProcessValue): any;
     setVariables(variables: Array<string>): void;
 }
 export declare class FunctionOperand extends Operand {
     onAsyncReady: () => void;
     constructor(origionalValue: string, parameters: ArrayOperand);
+    getType(): string;
     evaluateAsync(processValue: ProcessValue): void;
     evaluate(processValue?: ProcessValue): any;
-    toString(): string;
+    toString(func?: (op: Operand) => string): string;
     setVariables(variables: Array<string>): void;
     readonly isReady: boolean;
     hasFunction(): boolean;
@@ -851,7 +864,7 @@ export declare class FunctionOperand extends Operand {
 }
 export declare class OperandMaker {
     static throwInvalidOperatorError(op: string): void;
-    static safeToString(operand: Operand): string;
+    static safeToString(operand: Operand, func: (op: Operand) => string): string;
     static toOperandString(value: string): string;
     static isSpaceString(str: string): boolean;
     static isNumeric(value: string): boolean;
@@ -905,6 +918,8 @@ export declare class JsonObjectProperty implements IObject {
     defaultValueValue: any;
     serializationProperty: string;
     maxLength: number;
+    maxValue: any;
+    minValue: any;
     layout: string;
     onGetValue: (obj: any) => any;
     onSetValue: (obj: any, value: any, jsonConv: JsonObject) => any;
@@ -1402,7 +1417,7 @@ export declare class QuestionMatrixDropdownModel extends QuestionMatrixDropdownM
         totalText: string;
         readonly locTotalText: LocalizableString;
         getFooterText(): LocalizableString;
-        protected getDisplayValueCore(keysAsText: boolean): any;
+        protected getDisplayValueCore(keysAsText: boolean, value: any): any;
         addConditionNames(names: Array<string>): void;
         addConditionObjectsByContext(objects: Array<IConditionObject>, context: any): void;
         clearIncorrectValues(): void;
@@ -1529,7 +1544,7 @@ export declare class QuestionMatrixDynamicModel extends QuestionMatrixDropdownMo
             */
         removeRowText: string;
         readonly locRemoveRowText: LocalizableString;
-        protected getDisplayValueCore(keysAsText: boolean): any;
+        protected getDisplayValueCore(keysAsText: boolean, value: any): any;
         addConditionNames(names: Array<string>): void;
         addConditionObjectsByContext(objects: Array<IConditionObject>, context: any): void;
         supportGoNextPageAutomatic(): boolean;
@@ -1624,7 +1639,7 @@ export declare class QuestionMatrixModel extends QuestionMatrixBaseModel<MatrixR
         protected getIsAnswered(): boolean;
         protected createMatrixRow(item: ItemValue, fullName: string, value: any): MatrixRowModel;
         protected setQuestionValue(newValue: any): void;
-        getDisplayValueCore(keysAsText: boolean): any;
+        protected getDisplayValueCore(keysAsText: boolean, value: any): any;
         getPlainData(options?: {
                 includeEmpty?: boolean;
                 calculations?: Array<{
@@ -1919,9 +1934,9 @@ export declare class PanelModelBase extends SurveyElement implements IPanel, ICo
         /**
             * Returns true, if there is an error on this Page or inside the current Panel
             * @param fireCallback set it to true, to show errors in UI
-            * @param focuseOnFirstError set it to true to focuse on the first question that doesn't pass the validation
+            * @param focusOnFirstError set it to true to focus on the first question that doesn't pass the validation
             */
-        hasErrors(fireCallback?: boolean, focuseOnFirstError?: boolean, rec?: any): boolean;
+        hasErrors(fireCallback?: boolean, focusOnFirstError?: boolean, rec?: any): boolean;
         getErrorCustomText(text: string, error: SurveyError): string;
         protected hasErrorsCore(rec: any): void;
         protected getContainsErrors(): boolean;
@@ -2415,7 +2430,7 @@ export declare class Question extends SurveyElement implements IQuestion, ICondi
             * @see SurveyModel.questionTitleTemplate
             */
         readonly fullTitle: string;
-        protected getQuestionTitleTemplate(): string;
+        getQuestionTitleTemplate(): string;
         /**
             * The Question renders on the new line if the property is true. If the property is false, the question tries to render on the same line/row with a previous question/panel.
             */
@@ -2526,9 +2541,10 @@ export declare class Question extends SurveyElement implements IQuestion, ICondi
         /**
             * Return the question value as a display text. For example, for dropdown, it would return the item text instead of item value.
             * @param keysAsText Set this value to true, to return key (in matrices questions) as display text as well.
+            * @param value use this parameter, if you want to get display value for this value and not question.value. It is undefined by default.
             */
-        getDisplayValue(keysAsText: boolean): any;
-        protected getDisplayValueCore(keyAsText: boolean): any;
+        getDisplayValue(keysAsText: boolean, value?: any): any;
+        protected getDisplayValueCore(keyAsText: boolean, value: any): any;
         /**
             * Set the default value to the question. It will be assign to the question on loading the survey from JSON or adding a question to the survey or on setting this property of the value is empty.
             */
@@ -2797,7 +2813,7 @@ export declare class QuestionSelectBase extends Question {
         /**
             * Returns the text for the current value. If the value is null then returns empty string. If 'other' is selected then returns the text for other value.
             */
-        protected getDisplayValueCore(keysAsText: boolean): any;
+        protected getDisplayValueCore(keysAsText: boolean, value: any): any;
         protected getChoicesDisplayValue(items: ItemValue[], val: any): any;
         protected readonly activeChoices: Array<ItemValue>;
         protected getChoices(): Array<ItemValue>;
@@ -2818,6 +2834,8 @@ export declare class QuestionSelectBase extends Question {
         protected clearDisabledValuesCore(): void;
         clearUnusedValues(): void;
         getColumnClass(): any;
+        getLabelClass(isChecked: boolean): any;
+        getControlLabelClass(isChecked: boolean): any;
         readonly columns: ItemValue[][];
         readonly hasColumns: boolean;
         choicesLoaded(): void;
@@ -2895,7 +2913,7 @@ export declare class QuestionCheckboxModel extends QuestionCheckboxBase {
         protected setNewValue(newValue: any): void;
         protected canUseFilteredChoices(): boolean;
         protected addToVisibleChoices(items: Array<ItemValue>): void;
-        protected getDisplayValueCore(keysAsText: boolean): any;
+        protected getDisplayValueCore(keysAsText: boolean, value: any): any;
         protected clearIncorrectValuesCore(): void;
         protected clearDisabledValuesCore(): void;
         getConditionJson(operator?: string, path?: string): any;
@@ -3053,10 +3071,28 @@ export declare class QuestionFileModel extends Question {
             */
         maxSize: number;
         /**
-            * The clean files value button caption.
+            * Use this property to setup confirmation to remove file.
+            */
+        needConfirmRemoveFile: boolean;
+        /**
+            * The remove file confirmation message.
+            */
+        getConfirmRemoveMessage(fileName: string): string;
+        /**
+            * The remove all files confirmation message.
+            */
+        readonly confirmRemoveAllMessage: string;
+        /**
+            * The no file chosen caption for modern theme.
             */
         readonly noFileChosenCaption: string;
+        /**
+            * The choose files button caption for modern theme.
+            */
         readonly chooseButtonCaption: string;
+        /**
+            * The clean files button caption.
+            */
         readonly cleanButtonCaption: string;
         /**
             * The remove file button caption.
@@ -3162,7 +3198,7 @@ export declare class QuestionRatingModel extends Question {
             * @see rateMax
             */
         rateStep: number;
-        protected getDisplayValueCore(keysAsText: boolean): any;
+        protected getDisplayValueCore(keysAsText: boolean, value: any): any;
         readonly visibleRateValues: ItemValue[];
         getType(): string;
         supportGoNextPageAutomatic(): boolean;
@@ -3208,9 +3244,9 @@ export declare class QuestionExpressionModel extends Question {
             * The minimum number of fraction digits to use if displayStyle is not "none". Possible values are from 0 to 20. The default value is -1 and it means that this property is not used.
             */
         minimumFractionDigits: number;
-        protected getDisplayValueCore(keysAsText: boolean): any;
+        protected getDisplayValueCore(keysAsText: boolean, value: any): any;
         /**
-            * You may set this property to "decimal", "currency" or "percent". If you set it to "currency", you may use the currency property to display the value in currency different from USD.
+            * You may set this property to "decimal", "currency", "percent" or "date". If you set it to "currency", you may use the currency property to display the value in currency different from USD.
             * @see currency
             */
         displayStyle: string;
@@ -3294,11 +3330,19 @@ export declare class QuestionBooleanModel extends Question {
         readonly locLabel: LocalizableString;
         readonly locDisplayLabel: LocalizableString;
         /**
+            * Set this property, if you want to have a different label for state when check is set.
+            */
+        labelTrue: any;
+        readonly locLabelTrue: LocalizableString;
+        /**
+            * Set this property, if you want to have a different label for state when check is unset.
+            */
+        labelFalse: any;
+        readonly locLabelFalse: LocalizableString;
+        /**
             * Set this property to true to show the question title. It is hidden by default.
             */
         showTitle: boolean;
-        readonly checkedLabel: string;
-        readonly uncheckedLabel: string;
         /**
             * Set this property, if you want to have a different value from true when check is set.
             */
@@ -3694,7 +3738,7 @@ export declare class QuestionPanelDynamicModel extends Question implements IQues
         clearValueIfInvisible(): void;
         protected getIsRunningValidators(): boolean;
         getAllErrors(): Array<SurveyError>;
-        protected getDisplayValueCore(keysAsText: boolean): any;
+        protected getDisplayValueCore(keysAsText: boolean, value: any): any;
         protected createNewPanel(): PanelModel;
         protected createAndSetupNewPanelObject(): PanelModel;
         protected createNewPanelObject(): PanelModel;
@@ -4373,7 +4417,14 @@ export declare class SurveyModel extends Base implements ISurvey, ISurveyData, I
             */
         goNextPageAutomatic: boolean | "autogonext";
         /**
-            * Change this property from 'onNextPage' to 'onValueChanged' to check erorrs on every question value changing.
+            * Set it to false if you do not want to submit survey automatically if goNextPageAutomatic=true.
+            * @see goNextPageAutomatic
+            */
+        allowCompleteSurveyAutomatic: boolean;
+        /**
+            * Change this property from 'onNextPage' to 'onValueChanged' to check erorrs on every question value changing,
+            * or change it to 'onComplete' to validate all visible questions on complete button. If there is the error on some pages,
+            * then the page with the first error becomes the current.
             * By default, library checks errors on changing current page to the next or on completing the survey.
             */
         checkErrorsMode: string;
@@ -4719,6 +4770,12 @@ export declare class SurveyModel extends Base implements ISurvey, ISurveyData, I
             * @see nextPage
             */
         readonly isCurrentPageHasErrors: boolean;
+        /**
+            * Returns true, if there is an error on any visible page
+            * @param fireCallback set it to true, to show errors in UI
+            * @param focusOnFirstError set it to true to focus on the first question that doesn't pass the validation and make the page, where question located, the current.
+            */
+        hasErrors(fireCallback?: boolean, focusOnFirstError?: boolean): boolean;
         /**
             * Call it to go to the previous page. It returns false if the current page is the first page already. It doesn't perform any checks, required questions can be empty.
             * @see isFirstPage
@@ -5367,6 +5424,8 @@ export declare var englishStrings: {
     removeFileCaption: string;
     booleanCheckedLabel: string;
     booleanUncheckedLabel: string;
+    confirmRemoveFile: string;
+    confirmRemoveAllFiles: string;
 };
 
 export declare var surveyLocalization: {
@@ -5452,6 +5511,28 @@ export declare var surveyStrings: {
     removeFileCaption: string;
     booleanCheckedLabel: string;
     booleanUncheckedLabel: string;
+    confirmRemoveFile: string;
+    confirmRemoveAllFiles: string;
+};
+
+export declare var cultureInfo: {
+    currentCultureValue: string;
+    defaultCultureValue: string;
+    cultures: {
+        [index: string]: any;
+    };
+    cultureNames: {
+        [index: string]: any;
+    };
+    supportedCultures: any[];
+    currentCulture: string;
+    defaultCulture: string;
+    getCulture: (cultureName?: string) => any;
+    getCultures: () => string[];
+};
+export declare var surveyStrings: {
+    shortDateFormats: any[];
+    dateSeparators: string[];
 };
 
 export declare class QuestionCustomWidget {
@@ -5461,7 +5542,7 @@ export declare class QuestionCustomWidget {
         constructor(name: string, widgetJson: any);
         afterRender(question: IQuestion, el: any): void;
         willUnmount(question: IQuestion, el: any): void;
-        getDisplayValue(question: IQuestion): string;
+        getDisplayValue(question: IQuestion, value?: any): string;
         isFit(question: IQuestion): boolean;
         activatedByChanged(activatedBy: string): void;
         readonly isDefaultRender: boolean;

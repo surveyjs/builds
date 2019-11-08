@@ -1,5 +1,5 @@
 /*!
- * SurveyJS Creator v1.1.15
+ * SurveyJS Creator v1.1.19
  * (c) Devsoft Baltic O� - http://surveyjs.io/
  * Github: https://github.com/surveyjs/survey-creator
  * License: https://surveyjs.io/Licenses#BuildSurvey
@@ -1171,7 +1171,8 @@
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
-  font-weight: 700; }
+  font-weight: 700;
+  vertical-align: top; }
 
 .svd_container.sv_default_css .form-group {
   margin-bottom: 15px; }
@@ -1618,7 +1619,8 @@ item-editor {
   top: -30px;
   left: 15px;
   text-align: right;
-  line-height: 30px; }
+  line-height: 30px;
+  min-width: 500px; }
   .svda-question-actions .svda_current_type {
     font-weight: 700;
     cursor: auto; }
@@ -1683,6 +1685,8 @@ rating-item-editor {
     pointer-events: none; }
     rating-item-editor .svda-content .svda-title-editor-content {
       white-space: nowrap; }
+      rating-item-editor .svda-content .svda-title-editor-content:first-child {
+        margin-left: 5px; }
     rating-item-editor .svda-content .svda-edit-button {
       padding-left: 5px;
       cursor: pointer; }
@@ -1710,7 +1714,7 @@ rating-item-editor {
 .image_item_editable {
   position: relative; }
 
-.sv_imgsel .svda-add-new-item {
+.sv_imagepicker_root .svda-add-new-item {
   vertical-align: top;
   border: 1px solid lightgray;
   border-radius: 4px;
