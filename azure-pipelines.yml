@@ -30,6 +30,11 @@ steps:
     TargetFolder: '$(SurveyJSVersion)'
     CleanTargetFolder: true
     OverWrite: true
+  displayName: 'copy build files to new build folder'
 
 - powershell: |
     echo $(git --version)
+    git init
+    git add $(SurveyJSVersion)/*
+    git push origin master
+  displayName: 'push new build to the surveyjs/builds repo'
