@@ -32,10 +32,11 @@ steps:
     OverWrite: true
   displayName: 'copy build files to new build folder'
 
+#TODO change git remote add origin https://github.com/surveyjs/auto-builds.git to git remote add origin https://github.com/surveyjs/builds.git
 - powershell: |
     echo $(git --version)
     git init
-    git remote add origin https://github.com/surveyjs/builds.git
+    git remote add origin https://github.com/surveyjs/auto-builds.git
     git pull origin master
     git add $(SurveyJSVersion)/*
     git commit -m "released $(SurveyJSVersion)"
