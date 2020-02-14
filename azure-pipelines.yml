@@ -35,6 +35,9 @@ steps:
 - powershell: |
     echo $(git --version)
     git init
+    git remote add origin https://github.com/surveyjs/builds.git
+    git pull origin master
     git add $(SurveyJSVersion)/*
+    git commit -m "released $(SurveyJSVersion)"
     git push origin master
   displayName: 'push new build to the surveyjs/builds repo'
