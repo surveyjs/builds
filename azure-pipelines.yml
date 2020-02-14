@@ -1,19 +1,35 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
+# SurveyJS pipeline for load the latest builds to surveyjs/builds repo
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'install Node.js'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    npm install
+  displayName: 'install the latest packages from NPM'
+
+#TODO remove the `SurveyJSVersion="testazuretest"` row
+- bash: |
+    SurveyJSVersion=$(npm info survey-creator version) 
+    SurveyJSVersion="testazuretest"
+    echo "##vso[task.setvariable variable=SurveyJSVersion]$SurveyJSVersion"
+  displayName: 'get SurveyJS latest version and put it to variable'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules'
+    Contents: |
+      survey-analytics/survey.analytics.js
+      survey-analytics/survey.analytics.css
+    TargetFolder: '$(SurveyJSVersion)'
+    CleanTargetFolder: true
+    OverWrite: true
+
+- powershell: |
+    echo $(git --version)
