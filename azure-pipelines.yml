@@ -5,6 +5,10 @@ pool:
 
 steps:
 
+- checkout: self
+  persistCredentials: true
+  clean: true
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -14,31 +18,163 @@ steps:
     npm install
   displayName: 'install the latest packages from NPM'
 
-#TODO remove the `SurveyJSVersion="testazuretest"` row
 - bash: |
     SurveyJSVersion=$(npm info survey-creator version) 
-    SurveyJSVersion="testazuretest"
     echo "##vso[task.setvariable variable=SurveyJSVersion]$SurveyJSVersion"
   displayName: 'get SurveyJS latest version and put it to variable'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'node_modules'
+    SourceFolder: 'node_modules/survey-analytics/'
     Contents: |
-      survey-analytics/survey.analytics.js
-      survey-analytics/survey.analytics.css
+      survey.analytics.js
+      survey.analytics.min.js
+      survey.analytics.css
+      survey.analytics.min.css
     TargetFolder: '$(SurveyJSVersion)'
     CleanTargetFolder: true
     OverWrite: true
-  displayName: 'copy build files to new build folder'
+  displayName: 'copy build files - survey-analytics'
 
-#TODO change git remote add origin https://github.com/surveyjs/auto-builds.git to git remote add origin https://github.com/surveyjs/builds.git
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-core/'
+    Contents: |
+      survey.core.js
+      survey.core.min.js
+      modern.css
+      modern.min.css
+      survey.css
+      survey.min.css
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-core'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-angular/'
+    Contents: |
+      survey.angular.js
+      survey.angular.min.js
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-angular'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-jquery/'
+    Contents: |
+      survey.jquery.js
+      survey.jquery.min.js
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-jquery'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-knockout/'
+    Contents: |
+      survey.ko.js
+      survey.ko.min.js
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-knockout'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-knockout/'
+    Contents: |
+      survey.ko.js
+      survey.ko.min.js
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-knockout'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-react/'
+    Contents: |
+      survey.react.js
+      survey.react.min.js
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-react'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-vue/'
+    Contents: |
+      survey.vue.js
+      survey.vue.min.js
+      survey-vue.js
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-vue'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-pdf/'
+    Contents: |
+      survey.pdf.js
+      survey.pdf.min.js
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-pdf'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-pdf/'
+    Contents: |
+      survey.pdf.js
+      survey.pdf.min.js
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-pdf'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/survey-creator/'
+    Contents: |
+      survey-creator.js
+      survey-creator.min.js
+      survey-creator.css
+      survey-creator.min.css
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - survey-creator'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/surveyjs-editor/'
+    Contents: |
+      surveyeditor.js
+      surveyeditor.min.js
+      surveyeditor.css
+      surveyeditor.min.css
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - surveyjs-editor'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'node_modules/surveyjs-widgets/'
+    Contents: |
+      surveyjs-widgets.js
+      surveyjs-widgets.min.js
+      surveyjs-widgets.min.js.map
+      widgets/**
+    TargetFolder: '$(SurveyJSVersion)'
+    OverWrite: true
+  displayName: 'copy build files - surveyjs-widgets'
+
+
 - powershell: |
     echo $(git --version)
-    git init
-    git remote add origin https://github.com/surveyjs/auto-builds.git
+    git config --global user.email "kurmanov.work@gmail.com"
+    git config --global user.name "dmitrykurmanov"
+    git checkout master
     git pull origin master
     git add $(SurveyJSVersion)/*
     git commit -m "released $(SurveyJSVersion)"
     git push origin master
-  displayName: 'push new build to the surveyjs/builds repo'
+  displayName: 'push build files to the surveyjs/builds repo'
