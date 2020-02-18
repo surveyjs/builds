@@ -1,4 +1,10 @@
 # SurveyJS pipeline for load the latest builds to surveyjs/builds repo
+trigger:
+  branches:
+    include:
+    - deprecatebranchestrigger
+    exclude:
+    - master
 
 pool:
   vmImage: 'Ubuntu-16.04'
