@@ -174,13 +174,13 @@ steps:
   displayName: 'copy build files - surveyjs-widgets'
 
 
-#- powershell: |
-#    echo $(git --version)
-#    git config --global user.email "kurmanov.work@gmail.com"
-#    git config --global user.name "dmitrykurmanov"
-#    git checkout master
-#    git pull origin master
-#    git add $(SurveyJSVersion)/*
-#    git commit -m "released $(SurveyJSVersion)"
-#    git push origin master
-#  displayName: 'push build files to the surveyjs/builds repo'
+- powershell: |
+    echo $(git --version)
+    git config --global user.email "kurmanov.work@gmail.com"
+    git config --global user.name "dmitrykurmanov"
+    git checkout master
+    git pull origin master
+    git add $(SurveyJSVersion)/*
+    git commit -m "released $(SurveyJSVersion)"
+    git push origin master
+  displayName: 'push build files to the surveyjs/builds repo'
