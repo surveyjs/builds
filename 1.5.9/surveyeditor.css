@@ -1,5 +1,5 @@
 /*!
- * SurveyJS Creator v1.1.25
+ * SurveyJS Creator v1.0.95
  * (c) Devsoft Baltic O� - http://surveyjs.io/
  * Github: https://github.com/surveyjs/survey-creator
  * License: https://surveyjs.io/Licenses#BuildSurvey
@@ -148,12 +148,12 @@
   .form-control.svd_custom_select:before {
     top: -1px; }
 
-.svd_container .svd_content .svd_custom_select, .svd_container .modal-dialog .svd_custom_select {
+.svd_custom_select {
   width: 100%;
   position: relative;
   display: inline-block;
   background-color: #ffffff; }
-  .svd_container .svd_content .svd_custom_select select, .svd_container .modal-dialog .svd_custom_select select {
+  .svd_custom_select select {
     width: 100%;
     display: block;
     position: relative;
@@ -162,9 +162,9 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     padding-right: 3em; }
-    .svd_container .svd_content .svd_custom_select select::-ms-expand, .svd_container .modal-dialog .svd_custom_select select::-ms-expand {
+    .svd_custom_select select::-ms-expand {
       display: none; }
-  .svd_container .svd_content .svd_custom_select:before, .svd_container .modal-dialog .svd_custom_select:before {
+  .svd_custom_select:before {
     padding: 17px;
     position: absolute;
     right: 0;
@@ -828,13 +828,6 @@
     display: inline-block;
     margin-bottom: 3px;
     margin-right: 7px; }
-  .svd_container #testShowInvisibleElements {
-    margin-right: 20px; }
-  .svd_container #testDeviceSelector {
-    width: 200px;
-    display: inline-block;
-    margin-bottom: 3px;
-    margin-right: 7px; }
   .svd_container #surveyjs .svd_question {
     overflow: visible; }
   .svd_container #surveyjs .sv_main .sv_custom_header,
@@ -1171,8 +1164,7 @@
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
-  font-weight: 700;
-  vertical-align: top; }
+  font-weight: 700; }
 
 .svd_container.sv_default_css .form-group {
   margin-bottom: 15px; }
@@ -1386,65 +1378,11 @@
           width: 30%;
           font-weight: 500; }
 
-.svd-logic-item-header {
-  background-color: #e0e0e0;
-  min-height: 32px;
-  line-height: 32px;
-  margin-top: 2em;
-  margin-bottom: 1em;
-  font-size: 14px;
-  padding: 0 1em; }
-  .svd-logic-item-header .svd-logic-header-item-icon {
-    display: inline-block;
-    cursor: pointer;
-    padding-right: 10px; }
-    .svd-logic-item-header .svd-logic-header-item-icon svg-icon {
-      display: inline-block;
-      width: 16px;
-      height: 16px; }
-      .svd-logic-item-header .svd-logic-header-item-icon svg-icon svg {
-        display: block;
-        margin-top: 3px; }
-
-.svd_container_disabled .item_editable {
-  pointer-events: none; }
-
 @media all and (-ms-high-contrast: none) {
   *::-ms-backdrop,
   .svd_container use {
     /* IE11 - https://surveyjs.answerdesk.io/ticket/details/T1387 */
     pointer-events: none; } }
-.svd-simulator {
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  box-sizing: content-box;
-  position: absolute;
-  transform-origin: 0 0; }
-
-.svd-simulator-wrapper {
-  margin: 0 auto;
-  position: relative; }
-
-.svd-simulator-frame {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0; }
-
-.svd-simulator-main {
-  height: 100%;
-  overflow: auto; }
-
-.svd-simulator-content {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  overflow: auto; }
 .title_editable {
   pointer-events: all;
   cursor: text; }
@@ -1622,8 +1560,7 @@ item-editor {
   top: -30px;
   left: 15px;
   text-align: right;
-  line-height: 30px;
-  min-width: 500px; }
+  line-height: 30px; }
   .svda-question-actions .svda_current_type {
     font-weight: 700;
     cursor: auto; }
@@ -1648,38 +1585,27 @@ question-actions {
 .svd_q_selected > .svda-question-actions .svda_action_separator {
   margin-left: 15px;
   margin-top: -5px; }
-
-.question_actions.svd_question:hover,
-.panel_actions.svd_question:hover {
-  border-top: 1px solid transparent; }
-  .question_actions.svd_question:hover > .svda-question-actions question-actions,
-  .panel_actions.svd_question:hover > .svda-question-actions question-actions {
-    display: block; }
-  .question_actions.svd_question:hover > .svda-question-actions .svda_action_separator,
-  .panel_actions.svd_question:hover > .svda-question-actions .svda_action_separator {
-    margin-left: 15px;
-    margin-top: -5px; }
-select-items-editor, select-items-display {
+select-items-editor {
   display: none; }
-  select-items-editor .svda-select-items-editor, select-items-editor .svda-select-items-display, select-items-display .svda-select-items-editor, select-items-display .svda-select-items-display {
+  select-items-editor .svda-select-items-editor {
     position: relative;
     pointer-events: all; }
-    select-items-editor .svda-select-items-editor .svda-select-items-title, select-items-editor .svda-select-items-display .svda-select-items-title, select-items-display .svda-select-items-editor .svda-select-items-title, select-items-display .svda-select-items-display .svda-select-items-title {
+    select-items-editor .svda-select-items-editor .svda-select-items-title {
       text-align: center;
       position: absolute;
       top: -2.2em;
       right: 2em;
       height: 2em; }
-      select-items-editor .svda-select-items-editor .svda-select-items-title span, select-items-editor .svda-select-items-display .svda-select-items-title span, select-items-display .svda-select-items-editor .svda-select-items-title span, select-items-display .svda-select-items-display .svda-select-items-title span {
+      select-items-editor .svda-select-items-editor .svda-select-items-title span {
         font-weight: bold;
         cursor: pointer; }
-    select-items-editor .svda-select-items-editor .svda-select-items-content, select-items-editor .svda-select-items-display .svda-select-items-content, select-items-display .svda-select-items-editor .svda-select-items-content, select-items-display .svda-select-items-display .svda-select-items-content {
+    select-items-editor .svda-select-items-editor .svda-select-items-content {
       padding: 1em;
       border-style: solid;
       border-width: 1px;
       border-top: none; }
 
-.svd_q_selected select-items-editor, .svd_q_selected select-items-display {
+.svd_q_selected select-items-editor {
   display: block; }
 rating-item-editor {
   display: none; }
@@ -1688,8 +1614,6 @@ rating-item-editor {
     pointer-events: none; }
     rating-item-editor .svda-content .svda-title-editor-content {
       white-space: nowrap; }
-      rating-item-editor .svda-content .svda-title-editor-content:first-child {
-        margin-left: 5px; }
     rating-item-editor .svda-content .svda-edit-button {
       padding-left: 5px;
       cursor: pointer; }
@@ -1717,7 +1641,7 @@ rating-item-editor {
 .image_item_editable {
   position: relative; }
 
-.sv_imagepicker_root .svda-add-new-item {
+.sv_imgsel .svda-add-new-item {
   vertical-align: top;
   border: 1px solid lightgray;
   border-radius: 4px;
