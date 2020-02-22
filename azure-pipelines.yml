@@ -1,11 +1,7 @@
 # SurveyJS pipeline for load the latest builds to surveyjs/builds repo
 
-
 #trigger only "by hand"
-trigger:
-  branches:
-    exclude:
-    - master 
+trigger: none
 
 pool:
   vmImage: 'Ubuntu-16.04'
