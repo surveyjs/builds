@@ -17,14 +17,25 @@ steps:
     versionSpec: '10.x'
   displayName: 'install Node.js'
 
-- script: |
-    npm install
-  displayName: 'install the latest packages from NPM'
-
 - bash: |
     SurveyJSVersion=$(npm info survey-creator version) 
     echo "##vso[task.setvariable variable=SurveyJSVersion]$SurveyJSVersion"
   displayName: 'get SurveyJS latest version and put it to variable'
+
+- script: |
+    npm init -f
+    npm install survey-analytics@$(SurveyJSVersion)
+    npm install survey-core@$(SurveyJSVersion)
+    npm install survey-angular@$(SurveyJSVersion)
+    npm install survey-jquery@$(SurveyJSVersion)
+    npm install survey-knockout@$(SurveyJSVersion)
+    npm install survey-react@$(SurveyJSVersion)
+    npm install survey-vue@$(SurveyJSVersion)
+    npm install survey-pdf@$(SurveyJSVersion)
+    npm install survey-creator@$(SurveyJSVersion)
+    npm install surveyjs-editor@$(SurveyJSVersion)
+    npm install surveyjs-widgets@$(SurveyJSVersion)
+  displayName: 'install the correspondent version of SurveyJS packages from NPM'
 
 - task: CopyFiles@2
   inputs:
@@ -72,16 +83,6 @@ steps:
     TargetFolder: '$(SurveyJSVersion)'
     OverWrite: true
   displayName: 'copy build files - survey-jquery'
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: 'node_modules/survey-knockout/'
-    Contents: |
-      survey.ko.js
-      survey.ko.min.js
-    TargetFolder: '$(SurveyJSVersion)'
-    OverWrite: true
-  displayName: 'copy build files - survey-knockout'
 
 - task: CopyFiles@2
   inputs:
