@@ -55,7 +55,7 @@ steps:
     npm install survey-vue@$(SurveyJSVersion)
     npm install survey-pdf@$(SurveyJSVersion)
     npm install survey-creator@$(SurveyJSVersion)
-    npm install surveyjs-editor@$(SurveyJSVersion)
+    npm install surveyjs-editor
     npm install surveyjs-widgets@$(SurveyJSVersion)
   displayName: 'install the correspondent version of SurveyJS packages from NPM'
 
