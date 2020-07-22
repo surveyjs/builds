@@ -21,3 +21,9 @@ SurveyJS Creator files:
 https://surveyjs.azureedge.net/1.1.13/survey-creator.css
 
 https://surveyjs.azureedge.net/1.1.13/survey-creator.min.js
+
+SurveyJS Analytics files:
+
+https://surveyjs.azureedge.net/1.7.23/survey-analytics.css
+
+https://surveyjs.azureedge.net/1.7.23/survey-analytics.min.js
