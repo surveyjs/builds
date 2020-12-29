@@ -7,7 +7,8 @@ https://unpkg.com/{ npm-library-name }/{ file name }
 To get the specific version you should use it as: To get the specific version you should use it as:
 https://unpkg.com/{ npm-library-name }@{ version }/{ file name }
 
-For example: https://unpkg.com/survey-jquery/survey.css or specific version as: https://unpkg.com/survey-jquery@1.8.22/survey.css
+For example: https://unpkg.com/survey-jquery/survey.css 
+Use the specific version as: https://unpkg.com/survey-jquery@1.8.22/survey.css
 
 The main javascript file can be get as: https://unpkg.com/survey-jquery
 
