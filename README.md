@@ -1,31 +1,39 @@
 # builds
-All surveyjs libraries and Creator builds.
+This repository is **obsolete** since v1.8.18, please use unpkg CDN instead. We keep these files and repository, so websites that uses SurveyJS Libraries can continue work.
 
-You may access all files via azure CDN as: https://surveyjs.azureedge.net/{ version name }/{ filename }
+You can use  unpkg CDN as the following to get the latest version: https://unpkg.com/{ npm-library-name }/{ file name }
+To get the specific version you should use it as: To get the specific version you should use it as https://unpkg.com/{ npm-library-name }@{ version }/{ file name }
+For example: https://unpkg.com/survey-jquery/survey.css or specific version as: https://unpkg.com/survey-jquery@1.8.22/survey.css
+The main javascript file can be get as: https://unpkg.com/survey-jquery
 
 
-SurveyJS Angular: https://surveyjs.azureedge.net/1.1.13/survey.angular.min.js
+SurveyJS Angular: https://unpkg.com/survey.angular.min.js
 
-SurveyJS jQuery: https://surveyjs.azureedge.net/1.1.13/survey.jquery.min.js
+SurveyJS jQuery: https://unpkg.com/survey.jquery.min.js
 
-SurveyJS knockout: https://surveyjs.azureedge.net/1.1.13/survey.ko.min.js
+SurveyJS knockout: https://unpkg.com/survey.ko.min.js
 
-SurveyJS React: https://surveyjs.azureedge.net/1.1.13/survey.react.min.js
+SurveyJS React: https://unpkg.com/survey.react.min.js
 
-SurveyJS Vue: https://surveyjs.azureedge.net/1.1.13/survey.vue.min.js
+SurveyJS Vue: https://unpkg.com/survey.vue.min.js
 
-Optional css (for non bootstrap version): https://surveyjs.azureedge.net/1.1.13/survey.css
+Optional css (for non bootstrap version): https://unpkg.com/survey-knockout/survey.css
+Optional css (for modern theme): https://unpkg.com/survey-knockout/modern.css
 
 
 SurveyJS Creator files:
 
-https://surveyjs.azureedge.net/1.1.13/survey-creator.css
+https://unpkg.com/survey-creator.css
 
-https://surveyjs.azureedge.net/1.1.13/survey-creator.min.js
+https://unpkg.com/survey-creator.min.js
 
 
 SurveyJS Analytics files:
 
-https://surveyjs.azureedge.net/1.7.23/survey.analytics.css
+https://unpkg.com/survey-analytics/survey.analytics.css
 
-https://surveyjs.azureedge.net/1.7.23/survey.analytics.min.js
+https://unpkg.com/survey-analytics/survey.analytics.min.js
+
+SurveyJS Export to Pdf files:
+https://unpkg.com/survey-pdf/
+
