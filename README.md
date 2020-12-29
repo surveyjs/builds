@@ -1,9 +1,14 @@
 # builds
 This repository is **obsolete** since v1.8.18, please use unpkg CDN instead. We keep these files and repository, so websites that uses SurveyJS Libraries can continue work.
 
-You can use  unpkg CDN as the following to get the latest version: https://unpkg.com/{ npm-library-name }/{ file name }
-To get the specific version you should use it as: To get the specific version you should use it as https://unpkg.com/{ npm-library-name }@{ version }/{ file name }
+You can use  unpkg CDN as the following to get the latest version: 
+https://unpkg.com/{ npm-library-name }/{ file name }
+
+To get the specific version you should use it as: To get the specific version you should use it as:
+https://unpkg.com/{ npm-library-name }@{ version }/{ file name }
+
 For example: https://unpkg.com/survey-jquery/survey.css or specific version as: https://unpkg.com/survey-jquery@1.8.22/survey.css
+
 The main javascript file can be get as: https://unpkg.com/survey-jquery
 
 
